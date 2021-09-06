@@ -14,7 +14,7 @@ const FieldInput = (props) => {
         onChange={props.onChange}
         value={props.value}
       />
-      <label for={props.id} className="form-label">
+      <label form={props.id} className="form-label">
         {props.placeholder}
       </label>
     </div>
