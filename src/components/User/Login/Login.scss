@@ -1,18 +1,20 @@
 .Container-login {
-  /* background-color: yellow; */
+ 
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 1.6rem;
 }
 .Form-login {
-  /* background-color: green; */
+ 
   max-width: 43.2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .Title-wellcome {
@@ -72,6 +74,7 @@
   font-size: 1.4rem;
   line-height: 2.2rem;
   border: none;
+  background: none;
   /* identical to box height, or 157% */
 
   display: flex;

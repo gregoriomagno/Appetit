@@ -27,10 +27,16 @@ const UserLogin = () => {
 
   function onChange(event) {
     const { value, name } = event.target;
+
     setValues({
       ...values,
       [name]: value,
     });
+  }
+
+
+  function checkEmptyFields(){
+      return (values.email === '') || (values.password === '');
   }
 
   function onSubmit(event) {
@@ -52,7 +58,7 @@ const UserLogin = () => {
       <form autoComplete="nope" onSubmit={onSubmit} className="Form-login">
         <img src={Logo} alt="Logo" className="Logo" />
 
-        <text className="Title-wellcome">Seja bem-vindo!</text>
+        <p className="Title-wellcome">Seja bem-vindo!</p>
 
         <text className="Text-body">
           Nós sabemos a importância de estar sempre de barriga cheia e o quanto
@@ -82,12 +88,12 @@ const UserLogin = () => {
           />
         </div>
 
-        <button  type="link" className="Button-forgot-password" >
+        <button type="button" className="Button-forgot-password" >
           recuperar minha senha
         </button>
-
-        <Button disabled={false}>Entrar</Button>
-
+        
+          <Button disabled={checkEmptyFields()}>Entrar</Button>
+        
         <div className="Text-baseboard">
           <p>Infoway Gestão em Saúde ©, 2019.</p>
         </div>
