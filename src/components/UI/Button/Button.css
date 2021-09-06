@@ -1,5 +1,7 @@
 .Button{
   font-family: Open Sans;
+  font-size: 1.4rem;
+  font-weight: 600;
   font-style: normal;
   text-align: center;
   text-transform: uppercase;
@@ -11,4 +13,7 @@
   background: #ff8822;
   border-radius: 10rem;
   }
-  
+
+.Button:disabled{
+  Opacity: 34%;
+}

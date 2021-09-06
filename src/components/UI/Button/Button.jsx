@@ -2,12 +2,11 @@ import React from "react";
 import "./Button.css";
 
 
-const Button = (props) =>{
-
-    return(
-        <button className="Button" type="submit" disabled={props.disabled} >
-           {props.children}
-        </button>
+const Button = (props) => {
+    return (
+                <button className="Button" type="submit" disabled={props.disabled} >
+                    {props.children}
+                </button>   
     );
 }
 export default Button;
