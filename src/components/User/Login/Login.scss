@@ -1,0 +1,104 @@
+.Container-login {
+  /* background-color: yellow; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Form-login {
+  /* background-color: green; */
+  max-width: 43.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Title-wellcome {
+  margin-top: 4rem;
+  /* h3 */
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  /* identical to box height, or 150% */
+
+  text-align: center;
+
+  color: rgba(0, 0, 0, 0.87);
+}
+.Text-body {
+  /* Text/Body */
+  margin-top: 1.6rem;
+
+  /* Body */
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  /* or 150% */
+
+  text-align: center;
+
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.Field-email{
+  margin-top: 3.2rem;
+}
+.Field-password{
+  margin-top: 2.4rem;
+}
+
+
+
+
+
+.Button-forgot-password {
+  /* Text/Button */
+
+  margin-top: 3.7rem;
+
+  /* Button */
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  border: none;
+  /* identical to box height, or 157% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+
+  /* Black 0.88% */
+
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.Text-baseboard {
+  /* Text/Body */
+  margin-top: 6.4rem;
+
+  /* Body */
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  /* Black 0.56% */
+
+  color: rgba(0, 0, 0, 0.56);
+}
+
+
+

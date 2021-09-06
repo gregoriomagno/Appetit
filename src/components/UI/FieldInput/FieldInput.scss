@@ -1,0 +1,40 @@
+.form {
+    position: relative;
+    width: 43.2rem;
+    background-color: none;
+    // height: 5.6rem;
+  
+    &-input {
+      margin-top: 0rem;
+      width: 100%;
+      padding: 1.6rem;
+      border: 0.1px solid rgba(0, 0, 0, 0.56);
+     
+      border-radius: 0.2rem;
+      color: black;
+      outline: none;
+      // padding: 1.25rem;
+      background: none;
+  
+      &:focus {
+        border-color: #ff8822;
+      }
+    }
+    &-label {
+      position: absolute;
+      left: 1.4rem;
+      top: 1.6rem;
+      padding: 0 0.5rem;
+      color: black;
+      cursor: text;
+      font-size: 1.6rem;
+      transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+    }
+  }
+  .form-input:focus~.form-label,
+  .form-input:not(:placeholder-shown).form-input:not(:focus)~.form-label{
+    top: -0.7rem;
+    font-size: 1.2rem;
+    left: 1.4rem;
+    background-color: white;
+  }

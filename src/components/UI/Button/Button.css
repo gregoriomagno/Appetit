@@ -1,0 +1,14 @@
+.Button{
+  font-family: Open Sans;
+  font-style: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  padding: 1.6rem;
+  margin-top: 2.4rem;
+  width: 32.8rem;
+  border: none;
+  background: #ff8822;
+  border-radius: 10rem;
+  }
+  
