@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import StoreConstext from "components/Store/Context";
 import { useHistory } from "react-router-dom";
 import Button from "components/UI/Button/Button";
-import Logo from "./Vector.svg";
+import Logo from "../../../assets/Login/Vector.svg";
 import FieldInput from "components/UI/FieldInput/FieldInput";
 import "./Login.scss";
 
