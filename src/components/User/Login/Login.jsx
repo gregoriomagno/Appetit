@@ -11,16 +11,30 @@ function initialState() {
 }
 
 function login({ email, password }) {
-  console.log("login");
-  if (email === "admin" && password === "admin") {
-    console.log("senha e email ok");
+  // console.log("login");
+  if (email === "gregorio@gmail.com" && password === "gregorio") {
+    // console.log("senha e email ok");
     return { token: "123" };
   } else {
     return { erro: "usuário ou senha invalido" };
   }
 }
 
+function validFields(email,password){
+  //Expressão regular que valida o email
+  let expValidEmail = new RegExp(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]/);
+
+  //Expressão regular que valida a senha (minimo de 8 caracteres)
+  let expValidPassword = new RegExp(/^(?=.*[A-Za-z])[A-Za-z\d]{8,}/);
+
+  const  emailValid = expValidEmail.test(email);
+  const  passwordValid = expValidPassword.test(password);
+  
+    return !emailValid || !passwordValid;
+}
+
 const UserLogin = () => {
+  
   const [values, setValues] = useState(initialState);
   const { setToken } = useContext(StoreConstext);
   const history = useHistory();
@@ -35,9 +49,6 @@ const UserLogin = () => {
   }
 
 
-  function checkEmptyFields(){
-      return (values.email === '') || (values.password === '');
-  }
 
   function onSubmit(event) {
     event.preventDefault();
@@ -60,10 +71,10 @@ const UserLogin = () => {
 
         <p className="Title-wellcome">Seja bem-vindo!</p>
 
-        <text className="Text-body">
+        <p className="Text-body">
           Nós sabemos a importância de estar sempre de barriga cheia e o quanto
           isso pode ajudar no seu dia.
-        </text>
+        </p>
 
         <div className="Field-email">
           <FieldInput
@@ -92,7 +103,7 @@ const UserLogin = () => {
           recuperar minha senha
         </button>
         
-          <Button disabled={checkEmptyFields()}>Entrar</Button>
+          <Button disabled={validFields(values.email,values.password)}>Entrar</Button>
         
         <div className="Text-baseboard">
           <p>Infoway Gestão em Saúde ©, 2019.</p>
