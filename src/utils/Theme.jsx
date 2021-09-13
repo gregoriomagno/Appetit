@@ -1,0 +1,1 @@
+const PrimaryColor = "#ff8822";

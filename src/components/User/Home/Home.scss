@@ -1,0 +1,17 @@
+.Container-home {
+  height: 100vh;
+  display: flex;
+  flex-direction: Row;
+  background: #FAFAFA;
+}
+// ------------------------
+
+// ----------------------------
+
+.Container-information-orders {
+  display: flex;
+  flex-direction: column;
+  max-width: 51.2rem;
+  width: 100%;
+  background: darkblue;
+}

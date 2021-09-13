@@ -1,0 +1,36 @@
+.Container-field-search{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .Container-field-search-left{ 
+    display: flex;
+    flex-direction: row;
+    
+    
+  }
+  .Icon-change-search{
+    margin: 0.5rem 0.3rem 1.4rem 0.3rem;
+  
+  }
+  .Icon-search{
+    margin: 0.3rem 1.1rem 1.2rem 0.3rem;
+  }
+  
+  
+  
+  .Field-search{
+  margin: 0rem 0rem 0.9rem 1.1rem;
+  border: none;
+  
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  /* identical to box height, or 150% */
+  
+  
+  color: rgba(0, 0, 0, 0.54);
+  }

@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
-import StoreConstext from "components/Store/Context";
+import StoreConstext from "../../Store/Context";
 import { useHistory } from "react-router-dom";
-import Button from "components/UI/Button/Button";
+import Button from "../../UI/Button/Button";
 import Logo from "../../../assets/Login/Vector.svg";
-import FieldInput from "components/UI/FieldInput/FieldInput";
+import FieldInput from "../../UI/FieldInput/FieldInput";
 import "./Login.scss";
 
 function initialState() {
@@ -104,7 +104,7 @@ const UserLogin = () => {
         </button>
         
           <Button disabled={validFields(values.email,values.password)}>Entrar</Button>
-        
+        {/* verificar */}
         <div className="Text-baseboard">
           <p>Infoway Gestão em Saúde ©, 2019.</p>
         </div>
