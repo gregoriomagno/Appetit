@@ -81,6 +81,8 @@ const SubScreenOrders = () => {
       setorders([]);
     }
   }
+
+  
   function newOrder() {
     return history.push("/pedidos",{name:"teste"});
   }

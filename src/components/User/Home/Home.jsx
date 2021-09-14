@@ -3,7 +3,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import "./Home.scss";
-import SubScreenOrders from "../../UI/SubScreenOrders/SubScreenOrders";
 
 const Home = () => {
   const history = useHistory();
@@ -16,7 +15,6 @@ const Home = () => {
     <div className="Container-home">
       <Menu />
       <h1>Home</h1>
-      {/* <SubScreenOrders/> */}
       
     </div>
   );
