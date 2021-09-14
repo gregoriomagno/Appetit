@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StoreProvider from "../components/Store/Provider";
 import Home from "./Home/Home";
 import Login from "./Login/Login";
+import Orders from "./Orders/Orders";
 import RoutesPrivate from "../components/Routes/private/Private";
 
 const PagesRoot = () => (
@@ -10,7 +11,11 @@ const PagesRoot = () => (
     <StoreProvider>
       <Switch>
         <Route path="/login" component={Login} />
+        <Route exact path="/pedidos">
+          <Orders/>
+        </Route>
         <RoutesPrivate path="/" component={Home} />
+        {/* <RoutesPrivate path="/pedidos" component={Orders} /> */}
       </Switch>
     </StoreProvider>
   </Router>

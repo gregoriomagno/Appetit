@@ -1,9 +1,13 @@
+.Container-scroll{
+  overflow:scroll;
+  overflow-x:hidden;
+  // background-color: darkmagenta;
+  background-color:#FAFAFA;
+}
 .Container-orders {
   display: flex;
   flex-direction: column;
   max-width: 94.4rem;
-  overflow:scroll;
-    overflow-x:hidden;
   width: 100%;
   margin-left: 4rem;
   margin-right: 4rem;

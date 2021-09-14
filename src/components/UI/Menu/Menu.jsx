@@ -15,7 +15,7 @@ function Menu() {
               {SidebarData.map((item, index) => {
                 return (
                   <>
-                    <ItemMenu item={item} key={item.key}/>
+                    <ItemMenu item={item} key={item.key}  />
                   </>
                 );
               })}

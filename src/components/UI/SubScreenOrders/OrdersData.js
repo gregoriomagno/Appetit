@@ -1,5 +1,5 @@
 
-import Order from "../../../models/Order";
+
 import Product from "../../../models/Product"
 import marcelPhoto from "../../../assets/imagePersons/marcelPhoto.svg";
 import fernandaPhoto from "../../../assets/imagePersons/fernandaPhoto.svg";

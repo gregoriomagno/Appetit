@@ -1,25 +1,25 @@
-import React from 'react';
-import { FaRegListAlt } from 'react-icons/fa';
 
-
+import IconPerson from "../../../assets/icones/IconPerson.svg";
+import IconList from "../../../assets/icones/IconList.svg";
 export const SidebarData = [
     {
         title:"Pedidos",
         key: "1",
         path: '/pedidos',
-        icon: <FaRegListAlt size={24}/>,
+        icon: IconList,
         className: 'Item-menu',
+        open: true,
         subNav : [
             {
                 title:"EM ABERTO",
                 key: "1.1",
-                path: '/pedidos/emaberto',
-                icon: <FaRegListAlt size={24}/>,
+                path: '/pedidos',
+                open: true
             }, {
                 title:"ENCERRADOS",
                 key: "1.2",
-                path: '/pedidos/encerrados',
-                icon: <FaRegListAlt size={24}/>,
+                path: '/login',
+                open: false,
             }
             
         ]
@@ -29,7 +29,7 @@ export const SidebarData = [
         title:"Clientes",
         key: "2",
         path: '',
-        icon: <FaRegListAlt size={24}/>,
+        icon: IconPerson,
         className: 'Item-menu',
         subNav : [
             

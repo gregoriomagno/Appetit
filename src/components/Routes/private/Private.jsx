@@ -11,7 +11,7 @@ const {token} = useContext(StoreConstext);
         <Route {...rest}
         render={()=> token ? 
             <Component{...rest}/> :
-
+                
             <Redirect to="/login"/>
         }/>
     )

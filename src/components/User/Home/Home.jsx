@@ -1,9 +1,9 @@
 import Menu from "../../UI/Menu/Menu";
-import SubScreenOrders from "../../UI/SubScreenOrders/SubScreenOrders";
 import React from "react";
 import { useHistory } from "react-router-dom";
 
 import "./Home.scss";
+import SubScreenOrders from "../../UI/SubScreenOrders/SubScreenOrders";
 
 const Home = () => {
   const history = useHistory();
@@ -11,13 +11,12 @@ const Home = () => {
   function logout() {
     return history.push("/login");
   }
+
   return (
     <div className="Container-home">
       <Menu />
-      <SubScreenOrders/>
-     
-     
-      
+      <h1>Home</h1>
+      {/* <SubScreenOrders/> */}
       
     </div>
   );
