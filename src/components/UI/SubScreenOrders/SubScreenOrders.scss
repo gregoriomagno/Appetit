@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: column;
   max-width: 94.4rem;
-  
+  overflow:scroll;
+    overflow-x:hidden;
   width: 100%;
   margin-left: 4rem;
   margin-right: 4rem;
   background-color:#FAFAFA;
+  // background-color: aqua;
 }
 
 .Container-img-user {
@@ -56,9 +58,28 @@
 .Line-field-search {
   width: 94.4rem;
   border-top: 1px solid rgba(0, 0, 0, 0.34);
+  margin-bottom: 0.8rem;
 }
 
-// -------search
+// -------card order
+.Container-order-by-date{
+  margin-top: 1.6rem;
+  
+  // background-color: aqua;
+}
+.Text-label-order-by-date{
+  font-family: Open Sans;
+font-style: normal;
+// font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: rgba(0, 0, 0, 0.54);
+margin-bottom: 1.6rem;
+
+}
+strong{
+  color: #000000;
+}
 
 // -----------------
 

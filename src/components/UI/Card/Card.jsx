@@ -32,7 +32,7 @@ function getDescription(products){
       </div>
       <div className="Container-right">
           <h6 className="Text-value-order">
-              R$: {getTotal(item.products)}
+              R$: {getTotal(item.products).toLocaleString('pt-br', {minimumFractionDigits: 2})}
           </h6>
       </div>
     </div>
