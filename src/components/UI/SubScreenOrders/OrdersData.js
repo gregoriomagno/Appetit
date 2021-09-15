@@ -26,11 +26,11 @@ export const OrdersData = [
         status: "open",
         total: 10.50,
         products: [{
-            product: produto1,
-            amount: 3,
+            'product': produto1,
+            'amount': 3,
         }, {
-            product: produto2,
-            amount: 3,
+            'product': produto2,
+            'amount': 3,
         },
         ],
     },
@@ -43,8 +43,8 @@ export const OrdersData = [
         status: "open",
         total: 4.50,
         products: [{
-            product: produto1,
-            amount: 3,
+            'product': produto1,
+            'amount': 3,
         }],
 
     },
@@ -56,8 +56,8 @@ export const OrdersData = [
         status: "open",
         total: 4.50,
         products: [{
-            product: produto1,
-            amount: 3,
+            'product': produto1,
+            'amount': 3,
         }],
 
     },
@@ -69,8 +69,8 @@ export const OrdersData = [
         status: "open",
         total: 4.50,
         products: [{
-            product: produto1,
-            amount: 3,
+            'product': produto1,
+            'amount': 3,
         }],
 
     },
@@ -82,8 +82,8 @@ export const OrdersData = [
         status: "open",
         total: 4.50,
         products: [{
-            product: produto1,
-            amount: 3,
+            'product': produto1,
+            'amount': 1,
         }],
 
     },

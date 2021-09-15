@@ -1,24 +1,22 @@
 import React from "react";
 import "./Card.scss";
-
-
+import { useHistory } from "react-router-dom";
+import Order from "../../../models/Order"
 const Card = ({ item }) => {
+  const history = useHistory();
+  const order = new Order(item);
 
-function getTotal(products){
-  return  products.reduce((a,b)=>a+ b.product.price * b.amount,0 );
-}
-function getDescription(products){
-  
-  
-  var textDescription = products.reduce((a,b)=>a +" "+b.amount+"x " +b.product.title+",","" );
-  
-  return textDescription.substring(0,textDescription.length-1)+".";
+
+
+function clickCard(item){
+  console.log("/pedidos/cliente")
+    return history.push("/pedidos/cliente",item);
 }
 
 
 
   return (
-    <div className="Container-card">
+    <button className="Container-card" onClick={()=>{clickCard(item)}}>
       <div className="Container-left">
         <img
           src={item.client.clientPhoto}
@@ -26,16 +24,16 @@ function getDescription(products){
           className="Photo-client"
         />
         <div className="Column">
-          <h6 className="Text-name-client">{item.client.clientName}</h6>
-          <caption className="Text-description-order">{getDescription(item.products)}</caption>
+          <h6 className="Text-name-client">{order.client.clientName}</h6>
+          <caption className="Text-description-order">{order.getDescription()}</caption>
         </div>
       </div>
       <div className="Container-right">
           <h6 className="Text-value-order">
-              R$: {getTotal(item.products).toLocaleString('pt-br', {minimumFractionDigits: 2})}
+              R$: {order.getTotal().toLocaleString('pt-br', {minimumFractionDigits: 2})}
           </h6>
       </div>
-    </div>
+    </button>
   );
 };
 export default Card;

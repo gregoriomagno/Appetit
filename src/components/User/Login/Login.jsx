@@ -58,7 +58,7 @@ const UserLogin = () => {
 
     if (token) {
       setToken(token);
-      return history.push("/pedidos");
+      return history.push("/");
     }
 
     setValues(initialState);
