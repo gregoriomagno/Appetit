@@ -10,6 +10,10 @@
 }
 .Container-products {
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+ 
+  // background-color: darkcyan;
   width: 51.2rem;
   padding-top: 7.2rem;
   padding-left: 4rem;
@@ -19,21 +23,29 @@
   padding-top: 1rem;
 }
 .Container-img-illustration {
-  margin-top: 11rem;
-  margin-left: 5.8rem;
+  // background-color: darkmagenta;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .Container-Column {
   display: flex;
   flex-direction: column;
+   background: #FAFAFA;
 }
 .Container-user-header {
   padding-right: 3.9rem;
   padding-bottom: 1.6rem;
-  //   margin-right: 3.9rem;
+  background: #FAFAFA;
+ 
 }
 .Container-inf-order {
   padding: 3.2rem 4rem 0rem 4rem;
   width: 51.2rem;
+ 
+ 
 }
 .subtitle-inf-order {
   margin-top: 2.4rem;
@@ -46,30 +58,26 @@
   color: rgba(0, 0, 0, 0.56);
 }
 
-.Container-steps {
+
+.Text-h6-inf-new-order{
   margin-top: 2.4rem;
-}
-.Text-title-steps {
+  margin-bottom: 2.4rem;
   font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
+  font-style: SemiBold;
+  font-weight: SemiBold;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  /* identical to box height, or 150% */
-
-  color: rgba(0, 0, 0, 0.64);
 }
-.Container-progress-steps {
-  margin-top: 0.8rem;
-  width: 43.2rem;
-  height: 1.2rem;
-  background: rgba(0, 0, 0, 0.08);
-
-  border-radius: 5px;
+.Container-category{
+  padding-top: 2.4rem;
+  padding-left: 5.6rem;
+  padding-right: 4rem;
 }
-.Container-progress {
-  width: 14.4rem;
-  height: 1.2rem;
-  background: #ff8822;
-  border-radius: 5px;
+.Title-category-products{
+
+  font-family: Open Sans;
+  font-style: SemiBold;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }

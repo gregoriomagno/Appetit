@@ -1,0 +1,51 @@
+.Container-card-new-order {
+    display: flex;
+    flex-direction: row;
+    margin: 0.8rem 4rem 0.8rem 0rem;
+    background: #FAFAFA;
+    // background: darkmagenta;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.1rem rgba(0, 0, 0, 0.08);
+    max-width: 43.2rem;
+    width: 100%;
+   
+  }
+  .Container-card-food-row-left {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .Photo {
+    margin: 1.6rem 1.6rem 1.7rem 1.6rem;
+  
+    border-radius: 2rem;
+    background: #ffffff;
+    box-shadow: 0px 0.05rem 0.1rem rgba(0, 0, 0, 0.1);
+  }
+  .Column-card-new-order{
+     
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 100%;
+    
+  }
+  .Container-card-food-row{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+  }
+  .Text-card-food{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  

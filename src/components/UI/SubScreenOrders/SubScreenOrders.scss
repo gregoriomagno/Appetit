@@ -1,7 +1,9 @@
 .Container-scroll{
   overflow:scroll;
-  overflow-x:hidden;
-  // background-color: darkmagenta;
+  //verificar necessidade
+  // overflow-x:hidden;
+  // max-width: 94.4rem;
+  width: 100%;
   background-color:#FAFAFA;
 }
 .Container-orders {
@@ -43,11 +45,7 @@
   color: rgba(0, 0, 0, 0.56);
 }
 
-.Line-field-search {
-  width: 94.4rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.34);
-  margin-bottom: 0.8rem;
-}
+
 
 // -------card order
 .Container-order-by-date{

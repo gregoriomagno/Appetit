@@ -5,7 +5,8 @@
   margin: 0.8rem 0rem 0.8rem 0rem;
   background: #ffffff;
   border: none;
-  width: 94.4rem;
+  // width: 94.4rem;
+  width: 100%;
   box-shadow: 0px 0.5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
@@ -22,9 +23,10 @@
   box-shadow: 0px 0.05rem 0.1rem rgba(0, 0, 0, 0.1);
 }
 .Column {
+  padding-top: 1.6rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   text-align: left;
 }
 .Text-name-client {

@@ -2,8 +2,10 @@ import React, { useState, useContext } from "react";
 import Card from "../Card/Card";
 import IconPlus from "../../../assets/icones/IconPlus.svg";
 import FieldSearch from "../FieldSearch/FieldSearch";
-import { OrdersData } from "./OrdersData";
+import { OrdersData } from "../../../utils/OrdersData";
+
 import { useHistory } from "react-router-dom";
+import IconChangeSearch from "../../../assets/icones/IconChangeSearch.svg";
 import UserHeaderPhoto from "../UserHeaderPhoto/UserHeaderPhoto";
 import TitleSubScreen from "../TitleSubScreen/TitleSubScreen";
 import StoreConstext from "../../Store/Context";
@@ -73,9 +75,9 @@ const SubScreenOrders = () => {
           <img src={IconPlus} alt="IconPlus" />
           <p className="Text-button-new-orders">fazer novo pedido</p>
         </button>
-        <FieldSearch onChange={onChange} />
+        <FieldSearch onChange={onChange} placeholder={"Procure o pedido aqui..."} trailing={IconChangeSearch} />
 
-        <hr className="Line-field-search " />
+       
         {orders.length === 0 && (
           <ul>
             {ordersByDate.map((item, index) => (
@@ -99,7 +101,7 @@ const SubScreenOrders = () => {
                       title={order.client.clientName}
                       photo={order.client.clientPhoto}
                       subTitle={objOrder.getDescription()}
-                      value={objOrder
+                      value={"R$ " + objOrder
                         .getTotal()
                         .toLocaleString("pt-br", { minimumFractionDigits: 2 })}
                     />
