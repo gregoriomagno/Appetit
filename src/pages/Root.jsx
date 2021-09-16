@@ -4,22 +4,26 @@ import StoreProvider from "../components/Store/Provider";
 import Home from "./Home/Home";
 import Login from "./Login/Login";
 import Orders from "./Orders/Orders";
-import OrdersByClient from "./OrdersByClient/OrdersByClient"
+import OrdersByClient from "./OrdersByClient/OrdersByClient";
 import RoutesPrivate from "../components/Routes/private/Private";
+import PagesNewOrder from "./NewOrder/NewOrder";
 
 const PagesRoot = () => (
   <Router>
     <StoreProvider>
       <Switch>
         <Route path="/login" component={Login} />
+        <Route exact path="/novoPedido">
+          <PagesNewOrder />
+        </Route>
         <Route exact path="/pedidos">
-          <Orders/>
+          <Orders />
         </Route>
         <Route exact path="/pedidos/cliente">
-          <OrdersByClient/>
+          <OrdersByClient />
         </Route>
+
         <RoutesPrivate path="/" component={Home} />
-        {/* <RoutesPrivate path="/pedidos" component={Orders} /> */}
       </Switch>
     </StoreProvider>
   </Router>

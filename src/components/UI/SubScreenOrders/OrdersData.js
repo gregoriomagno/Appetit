@@ -20,72 +20,50 @@ const produto2 = new Product(2, "café com leite", 2);
 export const OrdersData = [
     {
         id: 1,
-        client: person1,
-        description: "description",
         date: '11/05/2019',
-        status: "open",
         total: 10.50,
-        products: [{
-            'product': produto1,
-            'amount': 3,
-        }, {
-            'product': produto2,
-            'amount': 3,
+        Orders: [{
+            client: person1,
+            status: "open",
+            
+            products: [{
+                'product': produto1,
+                'amount': 3,
+            }, {
+                'product': produto2,
+                'amount': 3,
+            },
+            ],
         },
-        ],
-    },
+    ]},
+        {
+            id: 2,
+            date: '12/05/2019',
+            total: 4.5,
+            Orders: [{
+                client: person2,
+                status: "open",
+                products: [{
+                    'product': produto1,
+                    'amount': 3,
+                }, 
+                ],
+            },{
+                client: person1,
+                status: "open",
+                
+                products: [{
+                    'product': produto1,
+                    'amount': 3,
+                }, {
+                    'product': produto2,
+                    'amount': 3,
+                },
+                ],
+            },
+        ]},
+       
 
-    {
-        id: 2,
-        client: person2,
-        description: "description",
-        date: '11/05/2019',
-        status: "open",
-        total: 4.50,
-        products: [{
-            'product': produto1,
-            'amount': 3,
-        }],
-
-    },
-    {
-        id: 3,
-        client: person3,
-        description: "description",
-        date: '12/05/2019',
-        status: "open",
-        total: 4.50,
-        products: [{
-            'product': produto1,
-            'amount': 3,
-        }],
-
-    },
-    {
-        id: 4,
-        client: person3,
-        description: "description",
-        date: '15/05/2019',
-        status: "open",
-        total: 4.50,
-        products: [{
-            'product': produto1,
-            'amount': 3,
-        }],
-
-    },
-    {
-        id: 5,
-        client: person3,
-        description: "description",
-        date: '15/05/2019',
-        status: "open",
-        total: 4.50,
-        products: [{
-            'product': produto1,
-            'amount': 1,
-        }],
-
-    },
+    
    
 ]

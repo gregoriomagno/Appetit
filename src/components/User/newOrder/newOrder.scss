@@ -1,0 +1,75 @@
+.Container-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: Row;
+  background: #fafafa;
+}
+.Container-row {
+  display: flex;
+  flex-direction: row;
+}
+.Container-products {
+  background-color: #ffffff;
+  width: 51.2rem;
+  padding-top: 7.2rem;
+  padding-left: 4rem;
+}
+
+.Container-title {
+  padding-top: 1rem;
+}
+.Container-img-illustration {
+  margin-top: 11rem;
+  margin-left: 5.8rem;
+}
+.Container-Column {
+  display: flex;
+  flex-direction: column;
+}
+.Container-user-header {
+  padding-right: 3.9rem;
+  padding-bottom: 1.6rem;
+  //   margin-right: 3.9rem;
+}
+.Container-inf-order {
+  padding: 3.2rem 4rem 0rem 4rem;
+  width: 51.2rem;
+}
+.subtitle-inf-order {
+  margin-top: 2.4rem;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.Container-steps {
+  margin-top: 2.4rem;
+}
+.Text-title-steps {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  /* identical to box height, or 150% */
+
+  color: rgba(0, 0, 0, 0.64);
+}
+.Container-progress-steps {
+  margin-top: 0.8rem;
+  width: 43.2rem;
+  height: 1.2rem;
+  background: rgba(0, 0, 0, 0.08);
+
+  border-radius: 5px;
+}
+.Container-progress {
+  width: 14.4rem;
+  height: 1.2rem;
+  background: #ff8822;
+  border-radius: 5px;
+}

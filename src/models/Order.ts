@@ -33,7 +33,7 @@ class Order {
                 }
             }
             if (amount !== 1) {
-                textDescription += amount + "X ";
+                textDescription += amount + "x ";
             }
             textDescription += title + ",";
 
@@ -59,6 +59,8 @@ class Order {
 
         return total;
       }
+
+      
 
 
 

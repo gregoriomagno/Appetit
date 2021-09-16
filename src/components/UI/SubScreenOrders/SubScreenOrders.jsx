@@ -1,20 +1,21 @@
-import React from "react";
-import UserImg from "../../../assets/Home/user.svg";
+import React, { useState, useContext } from "react";
 import Card from "../Card/Card";
 import IconPlus from "../../../assets/icones/IconPlus.svg";
 import FieldSearch from "../FieldSearch/FieldSearch";
 import { OrdersData } from "./OrdersData";
 import { useHistory } from "react-router-dom";
-
+import UserHeaderPhoto from "../UserHeaderPhoto/UserHeaderPhoto";
+import TitleSubScreen from "../TitleSubScreen/TitleSubScreen";
+import StoreConstext from "../../Store/Context";
+import Order from "../../../models/Order";
 import "./SubScreenOrders.scss";
-import { useState } from "react";
-
-
 
 const SubScreenOrders = () => {
-  const [ordersAll, setOrdersAll] = useState(OrdersData);
+  const [ordersAll] = useState(OrdersData);
   const [orders, setorders] = useState([]);
   const history = useHistory();
+  const { setData } = useContext(StoreConstext);
+
   function initOrders() {
     ///ordenando lista por data
     var resultSearch = ordersAll.sort(function (a, b) {
@@ -26,78 +27,47 @@ const SubScreenOrders = () => {
       }
       return 0;
     });
-
-    /// criando outra lista com os pedidos separados por data
-    var map = [];
-    var list = [];
-    resultSearch.forEach(function (item, index, array) {
-      console.log("date: " + item.date);
-
-      if (list.length === 0) {
-        // console.log("loop");
-        // console.log(item.date);
-        // console.log("List add");
-        list.push(item);
-      } else {
-        // console.log("item date: "+item.date+"==="+list[0].date+"? " );
-        // console.log(item.date === list[0].date);
-        if (item.date === list[0].date) {
-          // console.log("List add");
-          list.push(item);
-        } else {
-          map.push(list);
-
-          // console.log("Map add");
-
-          list = [];
-
-          // console.log("List clean");
-          list.push(item);
-
-          // console.log("List add");
-        }
-        if (index === resultSearch.length - 1) {
-
-          map.push(list);
-          // console.log("Map add");
-          // console.log("Fim");
-        }
-      }
-    });
-    return map;
+    return resultSearch;
   }
-
-  const [ordersByDate, setordersByDate] = useState(initOrders());
-
   function onChange(event) {
     const { value } = event.target;
 
-    const resultSearch = ordersAll.filter(
-      (item) =>
-        item.client.clientName.toUpperCase().indexOf(value.toUpperCase()) > -1
-    );
+    var resultSearch = [];
+
+    ordersAll.forEach((item) => {
+      resultSearch.push(
+        item.Orders.filter(
+          (order) =>
+            order.client.clientName.toUpperCase().indexOf(value.toUpperCase()) >
+            -1
+        )
+      );
+    });
+
+    console.log(resultSearch);
     setorders(resultSearch);
     if (value === "") {
       setorders([]);
     }
+
+    // setorders([]);
   }
 
-  
   function newOrder() {
-    return history.push("/pedidos",{name:"teste"});
+    return history.push("/novoPedido");
   }
-  
+
+  const [ordersByDate, setordersByDate] = useState(initOrders());
+  setData(ordersByDate);
 
   return (
     <div className="Container-scroll">
       <div className="Container-orders">
-
-        <div className="Container-img-user">
-          <img src={UserImg} alt="userImg" />
+        <div className="Container-header-photo">
+          <UserHeaderPhoto />
         </div>
 
-        <h3 className="Text-hello-user">Olá, Vanusa!</h3>
-        <hr className="Line-Text-hello-user" />
+        <TitleSubScreen title="Olá, Vanusa!" />
 
         <button className="Button-new-orders" type="button" onClick={newOrder}>
           <img src={IconPlus} alt="IconPlus" />
@@ -111,28 +81,56 @@ const SubScreenOrders = () => {
             {ordersByDate.map((item, index) => (
               <div className="Container-order-by-date">
                 <p className="Text-label-order-by-date">
-                  <strong className="Strong">{item[0].date}</strong>, Você vendeu
+                  <strong className="Strong">{item.date}</strong>, Você vendeu
                   <strong>
                     {" "}
                     R${" "}
-                    {item
-                      .reduce((a, b) => a + b.total, 0.0)
-                      .toLocaleString("pt-br", { minimumFractionDigits: 2 })}
+                    {item.total.toLocaleString("pt-br", {
+                      minimumFractionDigits: 2,
+                    })}
                   </strong>
                 </p>
-                {item.map((order, index) => (
-                  <Card key={order.id} item={order} />
-                ))}
+                {item.Orders.map((order, index) => {
+                  const objOrder = new Order(order);
+                  return (
+                    <Card
+                      key={order.id}
+                      item={order}
+                      title={order.client.clientName}
+                      photo={order.client.clientPhoto}
+                      subTitle={objOrder.getDescription()}
+                      value={objOrder
+                        .getTotal()
+                        .toLocaleString("pt-br", { minimumFractionDigits: 2 })}
+                    />
+                  );
+                })}
               </div>
             ))}
           </ul>
         )}
 
-        {orders.length !== 0 && (
-          orders.map((order, index) => (
-            <Card key={order.id} item={order} />
-          ))
-        )}
+        {orders.length !== 0 &&
+          orders.map((orders, index) =>
+            orders.map((order) => {
+              const objOrder = new Order(order);
+              return (
+                <Card
+                  key={order.id}
+                  item={order}
+                  title={order.client.clientName}
+                  photo={order.client.clientPhoto}
+                  subTitle={objOrder.getDescription()}
+                  value={
+                    "R$:" +
+                    objOrder
+                      .getTotal()
+                      .toLocaleString("pt-br", { minimumFractionDigits: 2 })
+                  }
+                />
+              );
+            })
+          )}
       </div>
     </div>
   );
