@@ -1,0 +1,26 @@
+.Container-list-products{
+  //  background-color: darkviolet;
+  // height: 30rem;
+  // display: flex;
+  // flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  }
+  .Container-category{
+    padding-top: 2.4rem;
+    padding-left: 5.6rem;
+    padding-right: 4rem;
+  }
+  .Title-category-products{
+  
+    font-family: Open Sans;
+    font-style: SemiBold;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  .Line-divider{
+    height: 0.8rem;
+    border: none;
+    background: rgba(0, 0, 0, 0.08);
+  }

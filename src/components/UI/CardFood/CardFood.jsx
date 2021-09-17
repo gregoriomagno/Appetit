@@ -1,18 +1,22 @@
 import React from "react";
 import "./CardFood.scss";
 import { useHistory } from "react-router-dom";
+
+
+
 const CardFood = (props) => {
-    const history = useHistory();
-    // const order = new Order(props.item);
+const history = useHistory();
+
 
 
 
     return (
         <button
             className="Container-card-new-order"
-            onClick={() => { }}>
+            onClick={props.onClick}>
             <div className="Container-card-food-row-left">
-                <img src={props.photo} alt="Photo" className="Photo" />
+               
+                <img src={props.photo} alt={props.title} className="Photo"/>
                 <div className="Column-card-new-order">
                     <div className="Container-card-food-row">
                     <h6 className="Text-card-food">{props.title}</h6>

@@ -13,6 +13,7 @@ import IconButtonbackPage from "../IconButtonbackPage/IconButtonbackPage";
 const SubScreenOrdersByUser = ({ user }) => {
   const { data } = useContext(StoreConstext);
   const history = useHistory();
+  
   function selectOrdersByUser() {
     var ordersByUser = [];
     var orders = [];

@@ -5,6 +5,9 @@ import { createContext } from "react";
     setToken: () => {},
     Data : null,
     setData : () => {},
+    StatusNewOrder : null,
+    setStatusNewOrder : () =>{},
+
 
 });
 export default StoreConstext;

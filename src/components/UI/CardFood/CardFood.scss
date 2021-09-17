@@ -1,14 +1,14 @@
 .Container-card-new-order {
     display: flex;
     flex-direction: row;
-    margin: 0.8rem 4rem 0.8rem 0rem;
+    margin-right: 4rem ;
     background: #FAFAFA;
     // background: darkmagenta;
 
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 0.1rem rgba(0, 0, 0, 0.08);
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.08);
     max-width: 43.2rem;
     width: 100%;
    
