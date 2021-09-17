@@ -2,10 +2,9 @@
   height: 100vh;
   display: flex;
   flex-direction: Row;
-  background: #fafafa;
+  background: #FFFFFF;
 }
 .Container-content-new-order{
-  background-color: chartreuse;
   flex: 1;
 }
 .Container-row {
@@ -24,31 +23,4 @@
   padding-bottom: 1.6rem;
   background: #FAFAFA;
  
-}
-.Container-inf-order {
-  padding: 3.2rem 4rem 0rem 4rem;
-  width: 51.2rem;
- 
- 
-}
-.subtitle-inf-order {
-  margin-top: 2.4rem;
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-
-  color: rgba(0, 0, 0, 0.56);
-}
-
-
-.Text-h6-inf-new-order{
-  margin-top: 2.4rem;
-  margin-bottom: 2.4rem;
-  font-family: Open Sans;
-  font-style: SemiBold;
-  font-weight: SemiBold;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
 }

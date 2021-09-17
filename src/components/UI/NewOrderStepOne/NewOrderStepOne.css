@@ -1,0 +1,28 @@
+.New-Order-Step-One-Container-Inf-Order{
+    padding: 2.3rem 4rem 0rem 4rem;
+    max-width: 51.2rem;
+    width: 100%;
+    background-color: #FAFAFA;
+}
+.New-Order-Step-One-Container-Text-Title{
+    padding-top: 1.4rem;
+}
+.New-Order-Step-One-Subtitle-Inf-Order{
+    margin-top: 2.4rem;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  
+    color: rgba(0, 0, 0, 0.56);
+}
+.New-Order-Step-One-Text-h6{
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+    font-family: Open Sans;
+    font-style: SemiBold;
+    font-weight: SemiBold;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }

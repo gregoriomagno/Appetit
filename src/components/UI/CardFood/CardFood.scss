@@ -3,12 +3,7 @@
     flex-direction: row;
     margin-right: 4rem ;
     background: #FAFAFA;
-    // background: darkmagenta;
-
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.08);
+    border:none ;
     max-width: 43.2rem;
     width: 100%;
    
@@ -20,9 +15,9 @@
   }
   .Photo {
     margin: 1.6rem 1.6rem 1.7rem 1.6rem;
-  
-    border-radius: 2rem;
     background: #ffffff;
+    border-radius: 2rem;
+    
     box-shadow: 0px 0.05rem 0.1rem rgba(0, 0, 0, 0.1);
   }
   .Column-card-new-order{
@@ -48,4 +43,14 @@
     font-size: 1.6rem;
     line-height: 2.4rem;
   }
-  
+
+  .Container-column-title-subtitle{
+display: flex;
+flex-direction: column;
+  }
+.Text-subtitle{
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+      text-align: left;
+      color: rgba(0, 0, 0, 0.54); 
+  }

@@ -1,16 +1,18 @@
 .Container-products {
-  // background-color: darkgreen;
+  background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    max-width: 51.2rem;
+    max-width: 43.2rem;
     width: 100%;
-    padding-left: 4rem;
-    margin-top: 7.46rem;
+    
+    margin: 7.2rem 4rem 0rem 4rem;
     
    
   }
   .Container-title {
-    padding-top: 1rem;
+    padding-top: 1.4rem;
+    // background-color: darkorange;
+    
   }
   .Container-img-illustration {
     height: 100%;

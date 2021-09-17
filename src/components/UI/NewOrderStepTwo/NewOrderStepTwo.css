@@ -1,0 +1,54 @@
+.New-Order-Step-Two-Container-Inf-Order{
+    padding: 0rem 4rem 0rem 4rem;
+    max-width: 51.2rem;
+    width: 100%;
+    background-color: #FAFAFA;
+    
+  }
+  .New-Order-Step-Two-Container-Text-Title{
+    padding-top: 1.4rem;
+  
+  }
+ .New-Order-Step-Two-Subtitle-Inf-Order{
+    margin-top: 2.4rem;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  
+    color: rgba(0, 0, 0, 0.56);
+ }
+ .New-Order-Step-Two-Container-Product{
+    display: flex;
+    flex-direction: row;
+    margin : 4.5rem 0rem 2.9rem 0rem
+  }
+  .New-Order-Step-Two-Photo-Obj{
+    margin: 0rem 1.6rem 0rem 0rem;
+    border-radius: 2rem;
+      box-shadow: 0px 0.05rem 0.1rem rgba(0, 0, 0, 0.1);
+  }
+  .New-Order-Step-Two-Container-Column {
+    display: flex;
+    flex-direction: column; 
+     background: #FAFAFA;
+  
+  }
+  .New-Order-Step-Two-Text-Obj-Title{
+    font-family: Open Sans;
+    font-style: SemiBold;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: left;
+    line-height: 2.4rem;
+  }
+  .New-Order-Step-Two-Text-Obj-Price{
+    font-family: Open Sans;
+    font-style: SemiBold;
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-align: left;
+    line-height: 2.4rem;
+    color: rgba(0, 0, 0, 0.54);
+  }

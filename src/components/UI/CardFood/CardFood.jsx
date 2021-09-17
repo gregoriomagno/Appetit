@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 
 const CardFood = (props) => {
-const history = useHistory();
+    const history = useHistory();
 
 
 
@@ -15,15 +15,18 @@ const history = useHistory();
             className="Container-card-new-order"
             onClick={props.onClick}>
             <div className="Container-card-food-row-left">
-               
-                <img src={props.photo} alt={props.title} className="Photo"/>
+
+                <img src={props.photo} alt={props.photo} className="Photo" />
                 <div className="Column-card-new-order">
                     <div className="Container-card-food-row">
-                    <h6 className="Text-card-food">{props.title}</h6>
+                        <div className="Container-column-title-subtitle">
+                            <h6 className="Text-card-food">{props.title}</h6>
+                            <caption className="Text-subtitle">{props.subTitle}</caption>
+                        </div>
                         {props.value !== null && (
                             <h6 className="Text-card-food">{props.value}</h6>
                         )}
-                        
+
                     </div>
 
                 </div>
