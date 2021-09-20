@@ -9,10 +9,15 @@ import PhotoCuscuz from "../assets/imageFood/food.svg";
 import PhotoCuscuzCompleto from "../assets/imageFood/PhotoFoodCuscuzComp.svg";
 import PhotoFoodPaoCaseiro from "../assets/imageFood/PhotoFoodPaoCaseiro.svg";
 import PhotoFoodPaoComp from "../assets/imageFood/PhotoFoodPaoComp.svg";
+
 //persons
 const person1 = new Person("1", "Marcel batista", marcelPhoto);
 const person2 = new Person("2", "Fernanda Siqueira", fernandaPhoto);
 const person3 = new Person("3", "Luiz Oliveira", luizPhoto);
+
+export const persons = [person1,person2,person3];
+
+
 
 //products 
 const produto1 = new Product(1, "café", 1.5,PhotoCuscuz,"Escolha dentre as opções de massas abaixo.",["Milho","Arroz"]);

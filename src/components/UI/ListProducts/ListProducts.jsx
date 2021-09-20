@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import CardFood from "../../UI/CardFood/CardFood";
+import CardNewOrder from "../CardNewOrder/CardNewOrder";
 import StoreConstext from "../../Store/Context";
 import "./ListProducts.scss";
 import Order from "../../../models/Order";
@@ -45,7 +45,7 @@ const ListProducts = ({ listProducts }) => {
             {item.itens.map((product) => {
               return (
                 <>
-                  <CardFood
+                  <CardNewOrder
                     key={product.id}
                     item={null}
                     title={product.title}

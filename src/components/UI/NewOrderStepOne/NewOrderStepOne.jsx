@@ -11,8 +11,10 @@ import "./NewOrderStepOne.css";
 ///refatorar
 
 const NewOrderStepOne = ({ status }) => {
+  
   const [listProducts, setListProducts] = useState(products);
   const { setStatusNewOrder } = useContext(StoreConstext);
+
   function onChange(event) {
     const { value } = event.target;
     var foods = [];

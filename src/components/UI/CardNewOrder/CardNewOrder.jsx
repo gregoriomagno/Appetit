@@ -1,10 +1,10 @@
 import React from "react";
-import "./CardFood.scss";
+import "./CardNewOrder.scss";
 import { useHistory } from "react-router-dom";
 
 
 
-const CardFood = (props) => {
+const CardNewOrder = (props) => {
     const history = useHistory();
 
 
@@ -36,4 +36,4 @@ const CardFood = (props) => {
         </button>
     );
 };
-export default CardFood;
+export default CardNewOrder;

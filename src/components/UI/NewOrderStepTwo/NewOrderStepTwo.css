@@ -1,102 +1,30 @@
-.New-Order-Step-Two-Container-Inf-Order {
-  padding: 0rem 4rem 0rem 4rem;
-  max-width: 51.2rem;
-  width: 100%;
-  background-color: #fafafa;
-}
-.New-Order-Step-Two-Container-Text-Title {
-  padding-top: 1.4rem;
-}
-.New-Order-Step-Two-Subtitle-Inf-Order {
-  margin-top: 1.6rem;
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-
-  color: rgba(0, 0, 0, 0.56);
-}
-.New-Order-Step-Two-Container-Product {
-  display: flex;
-  flex-direction: row;
-  margin: 4.5rem 0rem 2.9rem 0rem;
-}
-.New-Order-Step-Two-Photo-Obj {
-  margin: 0rem 1.6rem 0rem 0rem;
-  border-radius: 2rem;
-  box-shadow: 0px 0.05rem 0.1rem rgba(0, 0, 0, 0.1);
-}
-.New-Order-Step-Two-Container-Column {
+.New-Order-Step-Two-Container-Row{
   display: flex;
   flex-direction: column;
-  background: #fafafa;
-}
-.New-Order-Step-Two-Text-Obj-Title {
-  font-family: Open Sans;
-  font-style: SemiBold;
-  font-weight: 600;
-  font-size: 1.6rem;
-  text-align: left;
-  line-height: 2.4rem;
-}
-.New-Order-Step-Two-Text-Obj-Price {
-  font-family: Open Sans;
-  font-style: SemiBold;
-  font-weight: 400;
-  font-size: 1.6rem;
-  text-align: left;
-  line-height: 2.4rem;
-  color: rgba(0, 0, 0, 0.54);
-}
-.New-Order-Step-Two-Text-Options {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-  /* identical to box height, or 150% */
 
-  color: rgba(0, 0, 0, 0.87);
+  padding: 3.2rem 4rem 0rem 4rem;
 }
-.New-Order-Step-Two-Text-Text-Subtitle-Options {
-  margin-top: 0.8rem;
+.New-Order-Step-Two-Text-Subtitle{
+  margin-top: 2.4rem;
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  /* identical to box height, or 150% */
-
-  /* Black 0.56% */
 
   color: rgba(0, 0, 0, 0.56);
 }
-.New-Order-Step-Two-Card-Options {
-  display: flex;
-  flex-direction: row;
-  max-width: 43.2rem;
-  width: 100%;
-  background: #ffffff;
-  /* 10px */
-  box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.25);
-  border-radius: 0.5rem;
-  margin-top: 1.6rem;
-}
-.New-Order-Step-Two-Card-Options-Radio-Button {
-  margin: 1.6rem;
-}
-.New-Order-Step-Two-Card-Options-Text {
+.New-Order-Step-Two-Text-h6{
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
   font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
+  font-style: SemiBold;
+  font-weight: SemiBold;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  /* identical to box height, or 150% */
-
-  margin : 1.6rem 0rem 1.6rem 1.9rem;
-
-  /* Black 0.56% */
-
-  color: rgba(0, 0, 0, 0.56);
+}
+.New-Order-Step-Two-Divider-Card-Person{
+  height: 0.1rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.08);
 }
