@@ -15,11 +15,11 @@ const person2 = new Person("2", "Fernanda Siqueira", fernandaPhoto);
 const person3 = new Person("3", "Luiz Oliveira", luizPhoto);
 
 //products 
-const produto1 = new Product(1, "café", 1.5,PhotoCuscuz);
-const produto2 = new Product(2, "Pão caseiro completo", 2.25,PhotoFoodPaoComp);
-const produto3 = new Product(3, "Pão caseiro", 3.25,PhotoFoodPaoCaseiro);
-const produto4 = new Product(4, "cuscuz simples", 2.25,PhotoCuscuz);
-const produto5 = new Product(5, "cuscuz completo", 3.25,PhotoCuscuzCompleto);
+const produto1 = new Product(1, "café", 1.5,PhotoCuscuz,"Escolha dentre as opções de massas abaixo.",["Milho","Arroz"]);
+const produto2 = new Product(2, "Pão caseiro completo", 2.25,PhotoFoodPaoComp,"Escolha dentre as opções de massas abaixo.",["Milho","Arroz"]);
+const produto3 = new Product(3, "Pão caseiro", 3.25,PhotoFoodPaoCaseiro,"Escolha dentre as opções de massas abaixo.",["Milho","Arroz"]);
+const produto4 = new Product(4, "cuscuz simples", 2.25,PhotoCuscuz,"Escolha dentre as opções de massas abaixo.",["Milho","Arroz"]);
+const produto5 = new Product(5, "cuscuz completo", 3.25,PhotoCuscuzCompleto,"Escolha dentre as opções de massas abaixo.",["Milho","Arroz"]);
 
 export const products = [
     {

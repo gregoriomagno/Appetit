@@ -52,7 +52,6 @@ const SubScreenOrders = () => {
       setorders([]);
     }
 
-    // setorders([]);
   }
 
   function newOrder() {

@@ -19,11 +19,10 @@ const NewOrder = () => {
 
 
 
-
   return (
     <div className="Container-page">
       <Menu />
-      <AbstractNewOrder />
+      <AbstractNewOrder cart={StatusNewOrder.cart}/>
       <div className="Container-row">
         <div className="Container-Column">
           <div className="Container-user-header">
@@ -33,7 +32,8 @@ const NewOrder = () => {
             <NewOrderStepOne status={StatusNewOrder} />
           )}
           {StatusNewOrder.progress === "2" && (
-            <NewOrderStepTwo status={StatusNewOrder} />
+            <div></div>
+            // <NewOrderStepTwo status={StatusNewOrder} />
           )}
         </div>
       </div>

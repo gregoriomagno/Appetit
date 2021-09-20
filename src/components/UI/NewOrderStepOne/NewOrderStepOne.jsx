@@ -7,6 +7,12 @@ import TitleSubScreen from "../../UI/TitleSubScreen/TitleSubScreen";
 
 import "./NewOrderStepOne.css";
 
+
+
+///refatorar 
+
+
+
 const NewOrderStepOne = ({ status }) => {
     const [listProducts, setListProducts] = useState(products);
     function onChange(event) {
@@ -53,6 +59,12 @@ const NewOrderStepOne = ({ status }) => {
                 />
             </div>
             <ListProducts listProducts={listProducts} />
+            {status.cart.length !==0 &&
+            <div className="New-Order-Step-One-Container-Total-Products-Selected">
+                <h6 className="New-Order-Step-One-Container-Total-Products-Selected-Text"> Total: R${}</h6>
+                
+            </div>
+            }
         </>
     );
 }

@@ -6,7 +6,7 @@ import { useState } from "react";
 const StoreProvider = ({ children }) => {
   const [token, setToken] = useStorage("token");
   const [data, setData] = useStorage("data");
-  const [StatusNewOrder, setStatusNewOrder]= useState({ progress : "1", obj: null});
+  const [StatusNewOrder, setStatusNewOrder]= useState({ progress : "1", cart: [] , client: null});
   return (
     <Context.Provider
       value={{
@@ -15,7 +15,7 @@ const StoreProvider = ({ children }) => {
         data,
         setData,
         StatusNewOrder,
-        setStatusNewOrder
+        setStatusNewOrder,
       }}
     >
       {children}

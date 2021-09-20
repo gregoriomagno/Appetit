@@ -3,15 +3,29 @@ import CardFood from "../../UI/CardFood/CardFood";
 import StoreConstext from "../../Store/Context";
 import "./ListProducts.scss";
 
-
-
-
 const ListProducts = ({ listProducts }) => {
   const { StatusNewOrder, setStatusNewOrder } = useContext(StoreConstext);
 
   function onClickCard(obj) {
-    setStatusNewOrder({ progress: "2", obj: obj });
+    var cart = StatusNewOrder.cart;
+    var productAdded = false;
+    if (cart.length === 0) {
+      cart.push({ product: obj, qnt: 1 });
+    } else {
+      cart.forEach((item, index) => {
+        if (item.product.id === obj.id) {
+          cart[index] = { product: obj, qnt: item.qnt + 1 };
+          productAdded = true;
+          return true;
+        }
+      });
+      if (!productAdded) {
+        cart.push({ product: obj, qnt: 1 });
+      }
+    }
 
+    setStatusNewOrder({ progress: "1", cart: cart, client: null });
+    console.log(StatusNewOrder.cart);
   }
 
   return (

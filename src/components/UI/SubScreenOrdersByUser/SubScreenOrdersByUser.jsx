@@ -43,7 +43,7 @@ const SubScreenOrdersByUser = ({ user }) => {
         <UserHeaderPhoto />
       </div>
 
-      <IconButtonbackPage />
+      <IconButtonbackPage  onClick={()=> history.goBack()}/>
       <div className="Container-title-orderByUser">
         <TitleSubScreen
           title={
