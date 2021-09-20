@@ -12,25 +12,37 @@ import StoreConstext from "../../Store/Context";
 import Order from "../../../models/Order";
 import "./SubScreenOrders.scss";
 
+
+function initOrders(list) {
+  ///ordenando lista por data
+  var resultSearch = list.sort(function (a, b) {
+    if (a.date > b.date) {
+      return 1;
+    }
+    if (a.date < b.date) {
+      return -1;
+    }
+    return 0;
+  });
+  return resultSearch;
+}
+
 const SubScreenOrders = () => {
-  const [ordersAll] = useState(OrdersData);
+
+
+  const [ordersAll] = useState(initOrders(OrdersData));
+
   const [orders, setorders] = useState([]);
-  const history = useHistory();
+
+ 
+
   const { setData } = useContext(StoreConstext);
 
-  function initOrders() {
-    ///ordenando lista por data
-    var resultSearch = ordersAll.sort(function (a, b) {
-      if (a.date > b.date) {
-        return 1;
-      }
-      if (a.date < b.date) {
-        return -1;
-      }
-      return 0;
-    });
-    return resultSearch;
-  }
+  const history = useHistory();
+
+  setData(ordersAll);
+  
+
   function onChange(event) {
     const { value } = event.target;
 
@@ -58,8 +70,9 @@ const SubScreenOrders = () => {
     return history.push("/novoPedido");
   }
 
-  const [ordersByDate, setordersByDate] = useState(initOrders());
-  setData(ordersByDate);
+ 
+
+  
 
   return (
     <div className="Container-scroll">
@@ -79,7 +92,7 @@ const SubScreenOrders = () => {
        
         {orders.length === 0 && (
           <ul>
-            {ordersByDate.map((item, index) => (
+            {ordersAll.map((item, index) => (
               <div className="Container-order-by-date">
                 <p className="Text-label-order-by-date">
                   <strong className="Strong">{item.date}</strong>, Você vendeu

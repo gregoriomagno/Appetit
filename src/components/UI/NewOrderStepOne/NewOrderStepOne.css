@@ -27,6 +27,10 @@
   line-height: 2.4rem;
 }
 .New-Order-Step-One-Container-Total-Products-Selected {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
   margin-top: 0.3rem;
   padding-left: 2.4rem;
   max-width: 51.2rem;
@@ -44,4 +48,23 @@
   font-size: 1.6rem;
   line-height: 2.4rem;
   /* identical to box height, or 150% */
+}
+
+
+.New-Order-Step-One-Container-Total-Products-Selected-Button{
+
+  display: flex;
+  flex-direction: row;
+  margin: 1.6rem 3.2rem 1.6rem 0rem;
+  border: none;
+  background: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.New-Order-Step-One-Container-Total-Products-Selected-Button-Icon{
+  margin-top: 0.64rem;
+  margin-left: 2.44rem;
 }

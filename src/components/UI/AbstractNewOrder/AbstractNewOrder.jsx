@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 import "./AbstractNewOrder.scss";
 import CardFood from "../CardFood/CardFood";
-const AbstractNewOrder = ({ cart }) => {
+const AbstractNewOrder = ({ order }) => {
   const history = useHistory();
   return (
     <div className="Container-products">
@@ -14,16 +14,17 @@ const AbstractNewOrder = ({ cart }) => {
       <div className="Container-title">
         <TitleSubScreen title="Novo pedido" />
       </div>
-      {cart.length === 0 && (
+    
+      {order.itens.length === 0 && (
         <div className="Container-img-illustration">
           <img src={illustrationNewOrder} alt={"illustration"} />
         </div>
       )}
 
-      {cart.length !== 0 && (
+      {order.itens.length !== 0 && (
         <div>
           <h4 className="Abstract-New-Order-Text-Title-Products"> Produtos </h4>
-          {cart.map(function (item) {
+          {order.itens.map(function (item) {
             return (
               <CardFood
                     key={item.product.id}

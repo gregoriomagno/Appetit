@@ -2,30 +2,38 @@ import React, { useContext } from "react";
 import CardFood from "../../UI/CardFood/CardFood";
 import StoreConstext from "../../Store/Context";
 import "./ListProducts.scss";
+import Order from "../../../models/Order";
 
 const ListProducts = ({ listProducts }) => {
   const { StatusNewOrder, setStatusNewOrder } = useContext(StoreConstext);
 
   function onClickCard(obj) {
-    var cart = StatusNewOrder.cart;
+  
+  
+
+
+    const objOrder = new Order({id:6,client: null, products: StatusNewOrder.order.itens,date: "18/06/2020",status: "open"});
+
+    
+
     var productAdded = false;
-    if (cart.length === 0) {
-      cart.push({ product: obj, qnt: 1 });
+    if (objOrder.itens.length === 0) {
+      objOrder.itens.push({ product: obj, qnt: 1 });
     } else {
-      cart.forEach((item, index) => {
+      objOrder.itens.forEach((item, index) => {
         if (item.product.id === obj.id) {
-          cart[index] = { product: obj, qnt: item.qnt + 1 };
+          objOrder.itens[index] = { product: obj, qnt: item.qnt + 1 };
           productAdded = true;
           return true;
         }
       });
       if (!productAdded) {
-        cart.push({ product: obj, qnt: 1 });
+        objOrder.itens.push({ product: obj, qnt: 1 });
       }
     }
 
-    setStatusNewOrder({ progress: "1", cart: cart, client: null });
-    console.log(StatusNewOrder.cart);
+    setStatusNewOrder({ progress: "1", order: objOrder });
+    console.log(StatusNewOrder.order);
   }
 
   return (
