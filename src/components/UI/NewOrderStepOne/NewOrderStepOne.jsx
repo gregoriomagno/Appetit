@@ -7,6 +7,7 @@ import TitleSubScreen from "../../UI/TitleSubScreen/TitleSubScreen";
 import IconArrowRight from "../.././../assets/icones/IconArrowRight.svg"
 import StoreConstext from "../../Store/Context";
 import "./NewOrderStepOne.css";
+import ButtonNextStep from "../ButtonNextStep/ButtonNextStep";
 
 ///refatorar
 
@@ -61,21 +62,10 @@ const NewOrderStepOne = ({ status }) => {
       <ListProducts listProducts={listProducts} />
 
       {status.order.itens.length !== 0 && (
-        <div className="New-Order-Step-One-Container-Total-Products-Selected">
-          <h6 className="New-Order-Step-One-Container-Total-Products-Selected-Text">
-            {"Total: R$ " +
-              status.order.getTotal().toLocaleString("pt-br", {
-                minimumFractionDigits: 2,
-              })}
-          </h6>
-
-          <button
-            className="New-Order-Step-One-Container-Total-Products-Selected-Button"
-            type="button" onClick={()=> setStatusNewOrder({progress: "2", order: status.order})}>
-            <p>Avançar</p>
-            <img src={IconArrowRight} alt={IconArrowRight} className="New-Order-Step-One-Container-Total-Products-Selected-Button-Icon"/>
-          </button>
-        </div>
+          <ButtonNextStep label={"Total: R$ " +
+          status.order.getTotal().toLocaleString("pt-br", {
+            minimumFractionDigits: 2,
+          })} onClick={()=> setStatusNewOrder({progress: "2", order: status.order})}/>
       )}
     </>
   );

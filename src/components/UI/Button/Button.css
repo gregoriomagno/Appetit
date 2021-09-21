@@ -1,4 +1,4 @@
-.Button{
+.Button-Style-1{
   font-family: Open Sans;
   font-size: 1.4rem;
   font-weight: 600;
@@ -13,7 +13,21 @@
   background: #ff8822;
   border-radius: 10rem;
   }
-
+  .Button-Style-2{
+    font-family: Open Sans;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.88);
+    padding: 1.6rem;
+    margin-top: 2.4rem;
+    width: 32.8rem;
+    border: 2px solid rgba(0, 0, 0, 0.88);
+    background: none;
+    border-radius: 10rem;
+    }
 .Button:disabled{
   Opacity: 34%;
 }

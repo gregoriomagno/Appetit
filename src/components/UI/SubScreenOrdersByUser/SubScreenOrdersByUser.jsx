@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import "./SubScreenOrdersByUser.scss";
-import IconArrowBack from "../../../assets/icones/ArrowBack.svg";
 import UserHeaderPhoto from "../UserHeaderPhoto/UserHeaderPhoto";
 import TitleSubScreen from "../TitleSubScreen/TitleSubScreen";
 import StoreConstext from "../../Store/Context";
@@ -13,15 +12,15 @@ import IconButtonbackPage from "../IconButtonbackPage/IconButtonbackPage";
 const SubScreenOrdersByUser = ({ user }) => {
   const { data } = useContext(StoreConstext);
   const history = useHistory();
-  
+
   function selectOrdersByUser() {
     var ordersByUser = [];
     var orders = [];
+    console.log("UserSelected: " + user);
     data.forEach((itens) => {
       itens.Orders.forEach((item) => {
         const order = new Order(item);
         if (order.client.key === user.key) {
-          // console.log("ok");
           orders.push(order);
         }
       });
@@ -30,12 +29,11 @@ const SubScreenOrdersByUser = ({ user }) => {
         orders = [];
       }
     });
-    console.log(ordersByUser);
-    // console.log(user);
+    console.log("OrderByUser: " + ordersByUser);
 
     return ordersByUser;
   }
-  const [ordersByuser, setoOdersByUser] = useState(selectOrdersByUser());
+  const [ordersByuser] = useState(selectOrdersByUser());
 
   return (
     <div className="Container-orders-by-user">
@@ -43,7 +41,7 @@ const SubScreenOrdersByUser = ({ user }) => {
         <UserHeaderPhoto />
       </div>
 
-      <IconButtonbackPage  onClick={()=> history.goBack()}/>
+      <IconButtonbackPage onClick={() => history.goBack()} />
       <div className="Container-title-orderByUser">
         <TitleSubScreen
           title={
@@ -56,25 +54,27 @@ const SubScreenOrdersByUser = ({ user }) => {
       {
         <ul>
           {ordersByuser.map((item, index) => (
-            <div className="Container-order-by-date">
+            <div className="Container-order-by-date" key={index}>
               <p className="Text-label-order-by-date">
                 <strong className="Strong">{item.date}</strong>
               </p>
-              {item.products.map(function (order) {
+              {item.products.map(function (order, index) {
                 return (
-                  <Card
-                    key={order.key}
-                    item={null}
-                    title={order.getDescription().replace(",", " + ")}
-                    photo={imageFodd}
-                    subTitle={
-                      "R$ " +
-                      order
-                        .getTotal()
-                        .toLocaleString("pt-br", { minimumFractionDigits: 2 })
-                    }
-                    value={null}
-                  />
+                  <div key={index}>
+                    <Card
+                      key={order.key}
+                      item={null}
+                      title={order.getDescription().replace(",", " + ")}
+                      photo={order.itens[0].product.photo}
+                      subTitle={
+                        "R$ " +
+                        order
+                          .getTotal()
+                          .toLocaleString("pt-br", { minimumFractionDigits: 2 })
+                      }
+                      value={null}
+                    />
+                  </div>
                 );
               })}
             </div>

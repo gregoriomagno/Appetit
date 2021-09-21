@@ -27,7 +27,7 @@ const AbstractNewOrder = ({ order }) => {
           <h4 className="Abstract-New-Order-Text-Title"> Produtos </h4>
           {order.itens.map(function (item) {
             return (
-
+              <div key={item.product.id}>
               <CardNewOrder
                 key={item.product.id}
                 item={null}
@@ -42,30 +42,28 @@ const AbstractNewOrder = ({ order }) => {
                   })
                 }
               />
+              </div>
             );
           })}
         </div>
       )}
       {order.client !== null && (
         <>
-          <h4 className="Abstract-New-Order-Text-Title"> Clientes </h4>
-          {order.client.map(function (item) {
-            return (
-              <>
-              {console.log("teste: "+item)}
-                {/* <CardNewOrder
-                  key={item.key}
+          <h4 className="Abstract-New-Order-Text-Title"> Cliente </h4>
+  
+                <CardNewOrder
+                  key={null}
                   item={null}
-                  title={item.clientName}
-                  photo={item.clientPhoto}
+                  title={order.client.clientName}
+                  photo={order.client.clientPhoto}
                   subTitle={" "}
                   onClick={null}
 
-                /> */}
+                />
                 <hr className="New-Order-Step-Two-Divider-Card-Person" />
-              </>
-            )
-          })}
+              
+          
+          
 
         </>
       )}

@@ -1,5 +1,5 @@
 import Menu from "../../UI/Menu/Menu";
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 
 import UserHeaderPhoto from "../../UI/UserHeaderPhoto/UserHeaderPhoto";

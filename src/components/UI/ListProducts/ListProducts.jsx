@@ -38,13 +38,13 @@ const ListProducts = ({ listProducts }) => {
 
   return (
     <div className="Container-list-products">
-      {listProducts.map((item) => {
+      {listProducts.map((item,index) => {
         return (
-          <div className="Container-category">
+          <div className="Container-category" key={index}>
             <p className="Title-category-products">{item.category}</p>
             {item.itens.map((product) => {
               return (
-                <>
+                <div key={product.id}>
                   <CardNewOrder
                     key={product.id}
                     item={null}
@@ -62,7 +62,7 @@ const ListProducts = ({ listProducts }) => {
                     }
                   />
                   <hr className="Line-divisor-foods" />
-                </>
+                </div>
               );
             })}
             <hr className="Line-divider" />

@@ -7,6 +7,7 @@ const Card = (props) => {
 
   function clickCard(item) {
     console.log("/pedidos/cliente");
+    console.log("item: "+ item);
     return history.push("/pedidos/cliente", item);
   }
 
@@ -23,7 +24,7 @@ const Card = (props) => {
         <img src={props.photo} alt="clientPhoto" className="Photo-client" />
         <div className="Column">
           <h6 className="Text-name-client">{props.title}</h6>
-          <caption className="Text-description-order">{props.subTitle}</caption>
+          <p className="Text-description-order">{props.subTitle}</p>
         </div>
       </div>
       <div className="Container-right">

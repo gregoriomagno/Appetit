@@ -1,15 +1,9 @@
 import React from "react";
 import "./CardNewOrder.scss";
-import { useHistory } from "react-router-dom";
 
 
 
 const CardNewOrder = (props) => {
-    const history = useHistory();
-
-
-
-
     return (
         <button
             className="Container-card-new-order"
@@ -21,7 +15,7 @@ const CardNewOrder = (props) => {
                     <div className="Container-card-food-row">
                         <div className="Container-column-title-subtitle">
                             <h6 className="Text-card-food">{props.title}</h6>
-                            <caption className="Text-subtitle">{props.subTitle}</caption>
+                            <p className="Text-subtitle">{props.subTitle}</p>
                         </div>
                         {props.value !== null && (
                             <h6 className="Text-card-food">{props.value}</h6>

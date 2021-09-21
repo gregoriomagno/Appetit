@@ -3,7 +3,7 @@ import Person from "./person";
 
 class Order {
     key: String;
-    client: Array<Person>;
+    client: Person;
     date: Date;
     status: String;
     // total: number;
@@ -13,7 +13,7 @@ class Order {
     constructor(item: any) {
     
         this.key = item.id;
-        this.client = [item.client];
+        this.client = item.client;
         this.itens =item.products;
         this.date = item.date;
         // this.total = total;
