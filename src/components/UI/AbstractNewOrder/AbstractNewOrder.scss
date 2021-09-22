@@ -8,17 +8,25 @@
   margin: 7.2rem 4rem 0rem 4rem;
 }
 .Container-title {
+  max-width: 43.2rem;
+  width: 100%;
   padding-top: 1.4rem;
   // background-color: darkorange;
 }
+
 .Container-img-illustration {
   height: 100%;
+  max-width: 51.2rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
+.img-illustration{
+  max-width: 31.7rem;
+  width: 100%;
+}
 .Abstract-New-Order-Text-Title {
   margin-top:2.4rem ;
   font-family: Open Sans;

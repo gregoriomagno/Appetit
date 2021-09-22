@@ -10,7 +10,7 @@ const Orders = () => {
 
   
   return (
-    <div className="Container-home">
+    <div className="Container-Page-Orders">
       <Menu />
       <SubScreenOrders/> 
     </div>

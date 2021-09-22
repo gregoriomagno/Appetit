@@ -6,9 +6,8 @@ class Order {
     client: Person;
     date: Date;
     status: String;
-    // total: number;
     itens: Array<any>[];
-
+    
 
     constructor(item: any) {
     
@@ -16,24 +15,27 @@ class Order {
         this.client = item.client;
         this.itens =item.products;
         this.date = item.date;
-        // this.total = total;
         this.status = item.status;
+
+        
+
     }
 
-    getDescription() {
+     getDescription() {
         var textDescription = "";
+       
         this.itens.forEach(function (item) {
             var title;
-            var amount;
+            var qnt;
             for (var chave in item) {
                 if (chave === 'product') {
                     title = item[chave].title;
                 } else {
-                    amount = item[chave];
+                    qnt = item[chave];
                 }
             }
-            if (amount !== 1) {
-                textDescription += amount + "x ";
+            if (qnt !== 1) {
+                textDescription += qnt + "x ";
             }
             textDescription += title + ",";
 
@@ -43,17 +45,18 @@ class Order {
     }
      getTotal(){
         var total=0;
+        console.log("getTotal: "+ this.itens);
         this.itens.forEach(function (item) {
             var price;
-            var amount;
+            var qnt;
             for (var chave in item) {
                 if (chave === 'product') {
                     price = item[chave].price;
                 } else {
-                    amount = item[chave];
+                    qnt = item[chave];
                 }
             }
-            total+=price*amount;
+            total+=price*qnt;
 
         })
 

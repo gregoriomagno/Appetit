@@ -1,23 +1,32 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import FieldSearch from "../../UI/FieldSearch/FieldSearch";
 import LoadSteps from "../../UI/LoadSteps/LoadSteps";
 import ListProducts from "../../UI/ListProducts/ListProducts";
 import { products } from "../../../utils/OrdersData";
 import TitleSubScreen from "../../UI/TitleSubScreen/TitleSubScreen";
-import IconArrowRight from "../.././../assets/icones/IconArrowRight.svg"
+import IconArrowRight from "../.././../assets/icones/IconArrowRight.svg";
 import StoreConstext from "../../Store/Context";
 import "./NewOrderStepOne.css";
 import ButtonNextStep from "../ButtonNextStep/ButtonNextStep";
+import Order from "../../../models/Order";
 
 ///refatorar
 
 const NewOrderStepOne = ({ status }) => {
-  
   const [listProducts, setListProducts] = useState(products);
   const { setStatusNewOrder } = useContext(StoreConstext);
 
+  const order = new Order({
+    id: status.order.id,
+    client: status.order.client,
+    products: status.order.itens,
+    date: status.order.date,
+    status: status.order.status,
+  });
+
   function onChange(event) {
     const { value } = event.target;
+    
     var foods = [];
     var resultSearch = [];
 
@@ -59,13 +68,21 @@ const NewOrderStepOne = ({ status }) => {
           trailing={null}
         />
       </div>
-      <ListProducts listProducts={listProducts} />
-
+      
+        <ListProducts listProducts={listProducts} buttonActive={status.order.itens.length !== 0} />
+      
       {status.order.itens.length !== 0 && (
-          <ButtonNextStep label={"Total: R$ " +
-          status.order.getTotal().toLocaleString("pt-br", {
-            minimumFractionDigits: 2,
-          })} onClick={()=> setStatusNewOrder({progress: "2", order: status.order})}/>
+        <ButtonNextStep
+          label={
+            "Total: R$ " +
+            order.getTotal().toLocaleString("pt-br", {
+              minimumFractionDigits: 2,
+            })
+          }
+          onClick={() =>
+            setStatusNewOrder({ progress: "2", order: status.order })
+          }
+        />
       )}
     </>
   );

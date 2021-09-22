@@ -1,7 +1,12 @@
-.New-Order-Step-Two-Container-Row{
-  display: flex;
-  flex-direction: column;
+.New-Order-Step-Two-page{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.New-Order-Step-Two-Container-Column{
 
+  /* display: flex;
+  flex-direction: column; */
+  background: #fafafa;
   padding: 3.2rem 4rem 0rem 4rem;
 }
 .New-Order-Step-Two-Text-Subtitle{
@@ -22,6 +27,15 @@
   font-weight: SemiBold;
   font-size: 1.6rem;
   line-height: 2.4rem;
+}
+.New-Order-Step-Two-List-Clients{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-left: 4rem;
+}
+.New-Order-Step-Two-Card-Margin{
+  margin-bottom: 5rem;
+
 }
 .New-Order-Step-Two-Divider-Card-Person{
   height: 0.1rem;

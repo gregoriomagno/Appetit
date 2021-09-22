@@ -8,7 +8,8 @@
   color: #FFFFFF;
   padding: 1.6rem;
   margin-top: 2.4rem;
-  width: 32.8rem;
+  max-width: 32.8rem;
+  width: 100%;
   border: none;
   background: #ff8822;
   border-radius: 10rem;
@@ -23,11 +24,12 @@
     color: rgba(0, 0, 0, 0.88);
     padding: 1.6rem;
     margin-top: 2.4rem;
-    width: 32.8rem;
+    max-width: 32.8rem;
+    width: 100%;
     border: 2px solid rgba(0, 0, 0, 0.88);
     background: none;
     border-radius: 10rem;
     }
-.Button:disabled{
+.Button-Style-1:disabled{
   Opacity: 34%;
 }

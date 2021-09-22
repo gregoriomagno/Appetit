@@ -13,6 +13,7 @@ const FieldInput = (props) => {
         name={props.name}
         onChange={props.onChange}
         value={props.value}
+        onClick={props.onClick}
       />
       <label form={props.id} className="form-label">
         {props.placeholder}

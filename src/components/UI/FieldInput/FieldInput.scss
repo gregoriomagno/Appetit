@@ -1,12 +1,15 @@
 .form {
     position: relative;
-    width: 43.2rem;
+  
+    max-width: 43.2rem;
+    width: 100%;
     background-color: none;
     // height: 5.6rem;
   
     &-input {
       margin-top: 0rem;
-      width: 43.2rem;
+      max-width: 43.2rem;
+      width: 100%;
       padding: 1.6rem;
       border: 0.1px solid rgba(0, 0, 0, 0.56);    
       border-radius: 0.5rem;
@@ -30,6 +33,7 @@
       transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
     }
   }
+
   .form-input:focus~.form-label,
   .form-input:not(:placeholder-shown).form-input:not(:focus)~.form-label{
     top: -0.7rem;

@@ -1,21 +1,18 @@
 .Container-scroll{
+  
+  display: flex;
+  flex-direction: column;
   overflow:scroll;
   //verificar necessidade
   // overflow-x:hidden;
-  // max-width: 94.4rem;
+  
+  max-width: 136.6rem;
   width: 100%;
+  padding-left: 4rem;
+  padding-right: 4rem;
   background-color:#FAFAFA;
 }
-.Container-orders {
-  display: flex;
-  flex-direction: column;
-  max-width: 94.4rem;
-  width: 100%;
-  margin-left: 4rem;
-  margin-right: 4rem;
-  background-color:#FAFAFA;
-  // background-color: aqua;
-}
+
 .Container-header-photo{
   margin-bottom: 1.6rem;
 }

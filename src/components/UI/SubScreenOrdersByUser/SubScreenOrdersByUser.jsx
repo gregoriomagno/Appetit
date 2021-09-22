@@ -6,7 +6,7 @@ import StoreConstext from "../../Store/Context";
 import { useHistory } from "react-router-dom";
 import Card from "../Card/Card";
 import Order from "../../../models/Order";
-import imageFodd from "../../../assets/imageFood/food.svg";
+
 import IconButtonbackPage from "../IconButtonbackPage/IconButtonbackPage";
 
 const SubScreenOrdersByUser = ({ user }) => {
@@ -16,12 +16,13 @@ const SubScreenOrdersByUser = ({ user }) => {
   function selectOrdersByUser() {
     var ordersByUser = [];
     var orders = [];
-    console.log("UserSelected: " + user);
+    console.log("Data: " + data); 
+
     data.forEach((itens) => {
-      itens.Orders.forEach((item) => {
-        const order = new Order(item);
-        if (order.client.key === user.key) {
-          orders.push(order);
+      itens.products.forEach((item) => {
+      console.log("teste client" + itens.clientName)
+        if (itens.client.key === user.key) {
+          orders.push(item);
         }
       });
       if (orders.length !== 0) {
@@ -53,32 +54,35 @@ const SubScreenOrdersByUser = ({ user }) => {
 
       {
         <ul>
-          {ordersByuser.map((item, index) => (
-            <div className="Container-order-by-date" key={index}>
+          {ordersByuser.map(function(item, index)  {
+            var objOrder = new Order(item);
+           return  <div className="Container-order-by-date" key={index}>
               <p className="Text-label-order-by-date">
                 <strong className="Strong">{item.date}</strong>
               </p>
-              {item.products.map(function (order, index) {
-                return (
+             
+                
+              
                   <div key={index}>
                     <Card
-                      key={order.key}
+                      key={item.products[0].key}
                       item={null}
-                      title={order.getDescription().replace(",", " + ")}
-                      photo={order.itens[0].product.photo}
+                      title={
+                        objOrder.getDescription().replace(",", " + ")
+                      }
+                      photo={item.products[0].product.photo}
                       subTitle={
                         "R$ " +
-                        order
+                        objOrder
                           .getTotal()
                           .toLocaleString("pt-br", { minimumFractionDigits: 2 })
                       }
                       value={null}
                     />
                   </div>
-                );
-              })}
+               
             </div>
-          ))}
+            })}
         </ul>
       }
     </div>

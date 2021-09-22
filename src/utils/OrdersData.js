@@ -45,52 +45,33 @@ export const products = [
 export const OrdersData = [
     {
         id: 1,
+        client: person1,
         date: '11/05/2020',
-        total: 10.50,
-        Orders: [{
-            client: person1,
-            status: "open",
-
-            products: [{
-                'product': produto1,
-                'amount': 3,
-            }, {
-                'product': produto2,
-                'amount': 3,
-            },
-            ],
-        },
-        ]
+        products: [{
+            'product': produto2,
+            'qnt': 3,
+        }],
     },
     {
         id: 2,
-        date: '12/05/2019',
-        total: 4.5,
-        Orders: [{
-            client: person2,
-            status: "open",
-            products: [{
-                'product': produto1,
-                'amount': 3,
-            },
-            ],
-        }, {
-            client: person1,
-            status: "open",
-
-            products: [{
-                'product': produto1,
-                'amount': 3,
-            }, {
-                'product': produto2,
-                'amount': 3,
-            },
-            ],
-        },
-        ]
+        client: person2,
+        date: '11/05/2020',
+        products: [{
+            'product': produto2,
+            'qnt': 3,
+        }],
     },
-
-
-
+    {
+        id: 3,
+        client: person3,
+        date: '12/05/2020',
+        products: [{
+            'product': produto3,
+            'qnt': 4,
+        },{
+            'product': produto2,
+            'qnt': 4,
+        }],
+    },
 
 ]

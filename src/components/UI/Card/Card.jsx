@@ -7,8 +7,8 @@ const Card = (props) => {
 
   function clickCard(item) {
     console.log("/pedidos/cliente");
-    console.log("item: "+ item);
-    return history.push("/pedidos/cliente", item);
+    console.log("item: "+ props.item.clientName);
+    return history.push("/pedidos/cliente", {client:props.item });
   }
 
   return (
@@ -16,6 +16,7 @@ const Card = (props) => {
       className="Container-card"
       onClick={() => {
         if (props.item !== null) {
+          console.log("teste: "+ props.item);
           clickCard(props.item);
         }
       }}

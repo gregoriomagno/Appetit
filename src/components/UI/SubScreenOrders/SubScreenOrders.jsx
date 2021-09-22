@@ -3,7 +3,6 @@ import Card from "../Card/Card";
 import IconPlus from "../../../assets/icones/IconPlus.svg";
 import FieldSearch from "../FieldSearch/FieldSearch";
 
-
 import { useHistory } from "react-router-dom";
 import IconChangeSearch from "../../../assets/icones/IconChangeSearch.svg";
 import UserHeaderPhoto from "../UserHeaderPhoto/UserHeaderPhoto";
@@ -26,11 +25,52 @@ function initOrders(list) {
   return resultSearch;
 }
 
+function setOrderByDate(list) {
+  
+  var listByDate = [];
+  list.map(function (item) {
+    // console.log("map");
+    const obj = new Order(item);
+    if (listByDate.length === 0) {
+      // console.log("list vazia");
+      listByDate.push({
+        date: item.date,
+        order: [item],
+        total: obj.getTotal(),
+      });
+    } else {
+      listByDate.forEach(function (itemByDate, index) {
+        // console.log("forEach");
+        if (itemByDate.date === item.date) {
+          // console.log("data === data");
+          listByDate[index].total+=obj.getTotal();
+          listByDate[index].order.push(item);
+        } else {
+          if(index === listByDate.length-1){
+            // console.log("data != data");
+            listByDate.push({
+              date: item.date,
+              order: [item],
+              total: obj.getTotal(),
+            });
+          }
+          
+        }
+      });
+    }
+    return 0;
+  });
+
+  // console.log("itens setOrder saida: " + listByDate);
+  return listByDate;
+}
+
 const SubScreenOrders = () => {
   const { data } = useContext(StoreConstext);
-  const [ordersAll] = useState(initOrders(data));
 
   const [orders, setorders] = useState([]);
+  console.log("data: "+ data);
+  const [AllOrders, setAllOders] = useState(setOrderByDate(data));
   
   const history = useHistory();
 
@@ -39,9 +79,9 @@ const SubScreenOrders = () => {
 
     var resultSearch = [];
 
-    ordersAll.forEach((item) => {
+    AllOrders.forEach((item) => {
       resultSearch.push(
-        item.Orders.filter(
+        item.order.filter(
           (order) =>
             order.client.clientName.toUpperCase().indexOf(value.toUpperCase()) >
             -1
@@ -62,7 +102,7 @@ const SubScreenOrders = () => {
 
   return (
     <div className="Container-scroll">
-      <div className="Container-orders">
+     
         <div className="Container-header-photo">
           <UserHeaderPhoto />
         </div>
@@ -78,50 +118,56 @@ const SubScreenOrders = () => {
           placeholder={"Procure o pedido aqui..."}
           trailing={IconChangeSearch}
         />
-
+        
         {orders.length === 0 && (
           <ul>
-            {ordersAll.map((item, index) => (
-              <div className="Container-order-by-date" key={index}>
-                <p className="Text-label-order-by-date">
-                  <strong className="Strong">{item.date}</strong>, Você vendeu
-                  <strong>
-                    {" "}
-                    R${" "}
-                    {item.total.toLocaleString("pt-br", {
-                      minimumFractionDigits: 2,
-                    })}
-                  </strong>
-                </p>
-                {item.Orders.map((order, index) => {
-                  const objOrder = new Order(order);
-                  return (
-                    <div key={index}>
-                      <Card
-                        key={order.id}
-                        item={order}
-                        title={order.client.clientName}
-                        photo={order.client.clientPhoto}
-                        subTitle={objOrder.getDescription()}
-                        value={
-                          "R$ " +
-                          objOrder.getTotal().toLocaleString("pt-br", {
-                            minimumFractionDigits: 2,
-                          })
-                        }
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
+            {AllOrders.map(function (item, index) {
+              return (
+                <div className="Container-order-by-date" key={index}>
+                  <p className="Text-label-order-by-date">
+                    <strong className="Strong">{item.date}</strong>, Você vendeu
+                    <strong>
+                      {" "}
+                      R${" "}
+                      {
+                        item.total.toLocaleString("pt-br", {
+                          minimumFractionDigits: 2,
+                        })
+                      }
+                    </strong>
+                  </p>
+
+                  {item.order.map((itemOrder, index) => {
+                    const objOrder = new Order(itemOrder);
+                    return (
+                      <div key={index}>
+                        <Card
+                          key={objOrder.id}
+                          //verificar item
+                          item={objOrder.client}
+                          title={objOrder.client.clientName}
+                          photo={objOrder.client.clientPhoto}
+                          subTitle={objOrder.getDescription()}
+                          value={
+                            "R$ " +
+                            objOrder.getTotal().toLocaleString("pt-br", {
+                              minimumFractionDigits: 2,
+                            })
+                          }
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
           </ul>
         )}
 
         {orders.length !== 0 &&
           orders.map((orders, index) => (
             <div key={index}>
-              {orders.map((order,index) => {
+              {orders.map((order, index) => {
                 const objOrder = new Order(order);
                 return (
                   <div key={index}>
@@ -143,7 +189,7 @@ const SubScreenOrders = () => {
               })}
             </div>
           ))}
-      </div>
+      
     </div>
   );
 };

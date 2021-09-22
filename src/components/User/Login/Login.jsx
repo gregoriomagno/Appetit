@@ -14,9 +14,9 @@ function login({ email, password }) {
   // console.log("login");
   if (email === "gregorio@gmail.com" && password === "gregorio") {
     // console.log("senha e email ok");
-    return { token: "123" };
+    return { token: "123", erro: "" };
   } else {
-    return { erro: "usuário ou senha invalido" };
+    return { token: "", erro: "usuário ou senha invalidos!" };
   }
 }
 
@@ -37,6 +37,7 @@ const UserLogin = () => {
   
   const [values, setValues] = useState(initialState);
   const { setToken } = useContext(StoreConstext);
+  const [erroLogin,setErroLogin] =  useState("");
   const history = useHistory();
 
   function onChange(event) {
@@ -54,14 +55,18 @@ const UserLogin = () => {
     event.preventDefault();
     console.log(values);
 
-    const { token } = login(values);
-
-    if (token) {
+    const { token,erro } = login(values);
+  
+    if (token !=="") {
       setToken(token);
       return history.push("/");
     }
+    if(erro!==""){
+      setErroLogin(erro);
+      setValues(initialState);
+    }
 
-    setValues(initialState);
+   
   }
 
   return (
@@ -75,7 +80,7 @@ const UserLogin = () => {
           Nós sabemos a importância de estar sempre de barriga cheia e o quanto
           isso pode ajudar no seu dia.
         </p>
-
+        {erroLogin !=="" && <div className="Container-Text-Erro">  <p className="Text-Erro-Login">{erroLogin}</p></div>}
         <div className="Field-email">
           <FieldInput
             placeholder="Email"
@@ -85,8 +90,10 @@ const UserLogin = () => {
             autoComplete="off"
             onChange={onChange}
             value={values.email}
+            onClick={()=>{setErroLogin("")}}
           />
         </div>
+        
         <div className="Field-password">
           <FieldInput
             placeholder="Senha"
@@ -96,6 +103,7 @@ const UserLogin = () => {
             autoComplete="off"
             onChange={onChange}
             value={values.password}
+            onClick={()=>{setErroLogin("")}}
           />
         </div>
 

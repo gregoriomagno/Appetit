@@ -9,6 +9,7 @@ export const SidebarData = [
         icon: IconList,
         className: 'Item-menu',
         open: true,
+        disabled: false,
         subNav : [
             {
                 title:"EM ABERTO",
@@ -18,7 +19,7 @@ export const SidebarData = [
             }, {
                 title:"ENCERRADOS",
                 key: "1.2",
-                path: '/login',
+                path: '',
                 open: false,
             }
             
@@ -31,6 +32,7 @@ export const SidebarData = [
         path: '',
         icon: IconPerson,
         className: 'Item-menu',
+        disabled: true,
         subNav : [
             
             

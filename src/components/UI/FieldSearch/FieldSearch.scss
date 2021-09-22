@@ -1,32 +1,29 @@
-.Container-column{
+.Container-column {
   display: flex;
   flex-direction: column;
+  max-width: 94.4rem;
+  width: 100%;
 }
-.Container-field-search{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .Container-field-search-left{ 
-    display: flex;
-    flex-direction: row;
-    
-    
-  }
-  .Icon-change-search{
-    margin: 0.5rem 0.3rem 1.4rem 0.3rem;
-  
-  }
-  .Icon-search{
-    margin: 0.3rem 1.1rem 1.2rem 0.3rem;
-  }
-  
-  
-  
-  .Field-search{
+.Container-field-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.Container-field-search-left {
+  display: flex;
+  flex-direction: row;
+}
+.Icon-change-search {
+  margin: 0.5rem 0.3rem 1.4rem 0.3rem;
+}
+.Icon-search {
+  margin: 0.3rem 1.1rem 1.2rem 0.3rem;
+}
+
+.Field-search {
   margin: 0rem 0rem 0.9rem 1.1rem;
   border: none;
-  background:none;
+  background: none;
 
   font-family: Open Sans;
   font-style: normal;
@@ -34,12 +31,13 @@
   font-size: 1.6rem;
   line-height: 2.4rem;
   /* identical to box height, or 150% */
-  
-  
+
   color: rgba(0, 0, 0, 0.54);
-  }.Line-field-search {
-    // width: 94.4rem;
-    width: 100%;
-    border-top: 1px solid rgba(0, 0, 0, 0.34);
-    // margin-bottom: 0.8rem;
-  }
+}
+.Line-field-search {
+  // width: 94.4rem;
+  max-width: 94.4rem;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.34);
+  // margin-bottom: 0.8rem;
+}

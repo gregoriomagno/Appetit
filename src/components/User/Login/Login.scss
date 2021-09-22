@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   margin: 1.6rem;
+  
 }
 .Form-login {
   max-width: 43.2rem;
@@ -14,7 +15,9 @@
   flex-direction: column;
   align-items: center;
 }
-
+.Logo{
+  margin-top: 10rem;
+}
 .Title-wellcome {
   margin-top: 4rem;
   /* h3 */
@@ -33,7 +36,7 @@
 .Text-body {
   /* Text/Body */
   margin-top: 1.6rem;
-
+  margin-bottom: 3.2rem;
   /* Body */
 
   font-family: Open Sans;
@@ -47,14 +50,31 @@
 
   color: rgba(0, 0, 0, 0.54);
 }
+.Container-Text-Erro{
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 43.2rem;
+  width: 100%;
+}
+.Text-Erro-Login{
+
+  color: red;
+  text-align: right;
+  margin-bottom: 0.2rem;
+
+}
 
 .Field-email{
-  margin-top: 3.2rem;
+ 
   background: #FFFFFF;
+  max-width: 43.2rem;
+  width: 100%;
 }
 .Field-password{
   margin-top: 2.4rem;
   background: #FFFFFF;
+  max-width: 43.2rem;
+  width: 100%;
 }
 
 
@@ -65,7 +85,7 @@
   /* Text/Button */
 
   margin-top: 3.7rem;
-
+  background: none;
   /* Button */
 
   font-family: Open Sans;
@@ -89,7 +109,7 @@
 .Text-baseboard {
   /* Text/Body */
   margin-top: 6.4rem;
-
+  text-align: center;
   /* Body */
   font-family: Open Sans;
   font-style: normal;
