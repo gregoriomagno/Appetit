@@ -1,10 +1,9 @@
-.Container-scroll{
+.Container-Orders-List{
   
   display: flex;
   flex-direction: column;
   overflow:scroll;
-  //verificar necessidade
-  // overflow-x:hidden;
+
   
   max-width: 136.6rem;
   width: 100%;
@@ -60,9 +59,17 @@ color: rgba(0, 0, 0, 0.54);
 margin-bottom: 1.6rem;
 
 }
+@media  (max-width : 500px) {
+
+  .Container-Orders-List {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+}
 strong{
   color: #000000;
 }
 
-// -----------------
+
 

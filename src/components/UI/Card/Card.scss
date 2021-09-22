@@ -38,6 +38,12 @@
 }
 
 .Text-description-order {
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 21.6rem;
+  width: 100%;
   text-align: left;
   color: rgba(0, 0, 0, 0.54);
 
@@ -47,7 +53,10 @@
 .Container-right {
     margin: 1.6rem;
   }
-  .Text-value-order{
+.Text-value-order{
+  
+  max-width: 7rem;
+  width: 100%;
       font-family: Open Sans;
       font-style: normal;
       font-weight: 600;
@@ -59,3 +68,14 @@
     
       color: rgba(0, 0, 0, 0.87);
   }
+
+  @media  (max-width : 500px) {
+    .Container-right{
+      margin: 1.2rem;
+    }
+    .Text-description-order  {
+      max-width:  16.4rem;
+    }
+  
+  }
+  
