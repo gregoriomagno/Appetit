@@ -106,8 +106,7 @@ const NewOrderStepTwo = ({ status }) => {
               className={
                 (StatusNewOrder.order.client !== null && index ===clients.length-1 )
                   ? "New-Order-Step-Two-Card-Margin"
-                  : ""
-              }
+                  : ""}
             >
               <CardNewOrder
                 key={person.key}
@@ -120,17 +119,32 @@ const NewOrderStepTwo = ({ status }) => {
                 }
                 subTitle={" "}
                 onClick={function () {
-                  setClientSelected(person.key);
-                  setStatusNewOrder({
-                    progress: "2",
-                    order: new Order({
-                      id: StatusNewOrder.order.key,
-                      client: person,
-                      products: StatusNewOrder.order.itens,
-                      date: StatusNewOrder.order.date,
-                      status: "open",
-                    }),
-                  });
+                  if(clientSelected === person.key){
+                    setClientSelected(null);
+                    setStatusNewOrder({
+                      progress: "2",
+                      order: new Order({
+                        id: StatusNewOrder.order.key,
+                        client: null,
+                        products: StatusNewOrder.order.itens,
+                        date: StatusNewOrder.order.date,
+                        status: "open",
+                      }),
+                    });
+                  }else{
+                    setClientSelected(person.key);
+                    setStatusNewOrder({
+                      progress: "2",
+                      order: new Order({
+                        id: StatusNewOrder.order.key,
+                        client: person,
+                        products: StatusNewOrder.order.itens,
+                        date: StatusNewOrder.order.date,
+                        status: "open",
+                      }),
+                    });
+                  }
+                  
                 }}
               />
               <hr className="New-Order-Step-Two-Divider-Card-Person" />
@@ -139,7 +153,7 @@ const NewOrderStepTwo = ({ status }) => {
         })}
       </div>
       {StatusNewOrder.order.client !== null && (
-        <ButtonNextStep label={"Cliente"} onClick={endOrder} />
+        <ButtonNextStep label={"Cliente"} onClick={endOrder} key={2}/>
       )}
     </>
   );

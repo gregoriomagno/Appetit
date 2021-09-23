@@ -13,6 +13,7 @@ const AbstractNewOrder = ({ order }) => {
   const history = useHistory();
   const { setStatusNewOrder } = useContext(StoreConstext);
   return (
+    <>
     <div className="Container-products">
       <IconButtonbackPage
         onClick={() => {
@@ -83,7 +84,12 @@ const AbstractNewOrder = ({ order }) => {
           <hr className="New-Order-Step-Two-Divider-Card-Person" />
         </>
       )}
+      
+
+      <hr className="New-Order-Step-Two-Divider-Total" />
     </div>
+    
+    </>
   );
 };
 export default AbstractNewOrder;

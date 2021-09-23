@@ -1,11 +1,14 @@
+.Abstract-New-Order-Column-Page{
+  display: flex;
+  flex-direction: column;
+}
 .Container-products {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   max-width: 51.2rem;
   width: 100%;
-
-  padding: 7.2rem 0rem 0rem 4rem;
+  padding: 7.2rem 4rem 0rem 4rem;
   
 }
 .Container-title {
@@ -39,6 +42,13 @@
   /* Black 0.88% */
 
   color: rgba(0, 0, 0, 0.88);
+}
+.New-Order-Step-Two-Divider-Total{
+  // max-width: 51.2rem;
+  border: none;
+  width: 100%;
+  height: 0.8rem;
+  background:rgba(0, 0, 0, 0.08) ;
 }
 
 

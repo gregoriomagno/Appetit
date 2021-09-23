@@ -11,9 +11,10 @@ import AbstractNewOrder from "../../UI/AbstractNewOrder/AbstractNewOrder";
 import NewOrderStepOne from "../../UI/NewOrderStepOne/NewOrderStepOne";
 import NewOrderStepTwo from "../../UI/NewOrderStepTwo/NewOrderStepTwo";
 import IconButtonbackPage from "../../UI/IconButtonbackPage/IconButtonbackPage";
+import Order from "../../../models/Order";
 
 const NewOrder = () => {
-  const { StatusNewOrder } = useContext(StoreConstext);
+  const { StatusNewOrder, setStatusNewOrder } = useContext(StoreConstext);
   const history = useHistory();
 
   return (
@@ -26,7 +27,24 @@ const NewOrder = () => {
         <div className="bnt">
           <IconButtonbackPage
             onClick={() => {
-              history.goBack();
+              if (StatusNewOrder.progress === "1") {
+                history.push("/pedidos");
+              }
+              
+              if (StatusNewOrder.progress === "2") {
+                setStatusNewOrder({
+                  progress: "1", order: new Order({
+                    id: StatusNewOrder.order.key,
+                    client: null,
+                    products: StatusNewOrder.order.itens,
+                    date: StatusNewOrder.order.date,
+                    status: "open",
+                  }),
+                })
+
+              }
+
+
             }}
           />
         </div>
