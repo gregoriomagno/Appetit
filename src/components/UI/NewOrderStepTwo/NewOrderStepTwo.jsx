@@ -15,29 +15,39 @@ import IconSelected from "../../../assets/icones/ItemSelected.svg";
 
 const NewOrderStepTwo = ({ status }) => {
   const { StatusNewOrder, setStatusNewOrder } = useContext(StoreConstext);
+
   const [clients, setClients] = useState(persons);
+
   const [clientSelected, setClientSelected] = useState();
+
   const { data, setData } = useContext(StoreConstext);
   const history = useHistory();
 
   function onChange(event) {
+
     const { value } = event.target;
+
     var resultSearch = [];
+
     persons.forEach(function (person) {
       if (person.clientName.toUpperCase().indexOf(value.toUpperCase()) > -1) {
         resultSearch.push(
           new Person(person.key, person.clientName, person.clientPhoto)
         );
       }
+
     });
-    if (value === "") {
+    console.log("resultSearch: " + resultSearch.length);
+    if (value === "" ) {
       setClients(persons);
     } else {
-      console.log("Lista:    " + resultSearch[0].clientName);
+     
       setClients(resultSearch);
     }
     console.log("clientes lista show: " + clients);
   }
+
+
   function endOrder() {
     var list = [...data];
 

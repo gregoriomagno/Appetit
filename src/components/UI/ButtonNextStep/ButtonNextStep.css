@@ -1,15 +1,14 @@
 .Button-Next-Step-Container-Total-Products-Selected {
-    position: absolute;
-    bottom: 0rem;
-    right: 0rem;
     display: flex;
     flex-direction: row;
   
     justify-content: space-between;
     margin-top: 0.3rem;
     padding-left: 2.4rem;
+
     max-width: 51.2rem;
     width: 100%;
+
     background: #ff8822;
     box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
     color: #ffffff;
@@ -20,6 +19,8 @@
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
+    max-width: 51.2rem;
+    width: 100%;
     font-size: 1.6rem;
     line-height: 2.4rem;
     /* identical to box height, or 150% */
@@ -41,4 +42,11 @@
     margin-left: 2.44rem;
   }
   
+  @media  (max-width : 680px) {
+    .Button-Next-Step-Container-Total-Products-Selected{
+      max-width: 68rem;
+      width: 100%;
+    }
+    
   
+  }

@@ -16,11 +16,11 @@ const SubScreenOrdersByUser = ({ user }) => {
   function selectOrdersByUser() {
     var ordersByUser = [];
     var orders = [];
-    console.log("Data: " + data); 
+    console.log("Data: " + data);
 
     data.forEach((itens) => {
       itens.products.forEach((item) => {
-      console.log("teste client" + itens.clientName)
+        console.log("teste client" + itens.clientName);
         if (itens.client.key === user.key) {
           orders.push(item);
         }
@@ -38,11 +38,15 @@ const SubScreenOrdersByUser = ({ user }) => {
 
   return (
     <div className="Container-orders-by-user">
-      <div className="Container-user-header-photo">
-        <UserHeaderPhoto />
+      <div className= "Container-Header-Icons">
+      <UserHeaderPhoto />
+      <IconButtonbackPage onClick={() => history.goBack()} />
+       
+        
+
+      
       </div>
 
-      <IconButtonbackPage onClick={() => history.goBack()} />
       <div className="Container-title-orderByUser">
         <TitleSubScreen
           title={
@@ -54,35 +58,32 @@ const SubScreenOrdersByUser = ({ user }) => {
 
       {
         <ul>
-          {ordersByuser.map(function(item, index)  {
+          {ordersByuser.map(function (item, index) {
             var objOrder = new Order(item);
-           return  <div className="Container-order-by-date" key={index}>
-              <p className="Text-label-order-by-date">
-                <strong className="Strong">{item.date}</strong>
-              </p>
-             
-                
-              
-                  <div key={index}>
-                    <Card
-                      key={item.products[0].key}
-                      item={null}
-                      title={
-                        objOrder.getDescription().replace(",", " + ")
-                      }
-                      photo={item.products[0].product.photo}
-                      subTitle={
-                        "R$ " +
-                        objOrder
-                          .getTotal()
-                          .toLocaleString("pt-br", { minimumFractionDigits: 2 })
-                      }
-                      value={null}
-                    />
-                  </div>
-               
-            </div>
-            })}
+            return (
+              <div className="Container-order-by-date" key={index}>
+                <p className="Text-label-order-by-date">
+                  <strong className="Strong">{item.date}</strong>
+                </p>
+
+                <div key={index}>
+                  <Card
+                    key={item.products[0].key}
+                    item={null}
+                    title={objOrder.getDescription().replace(",", " + ")}
+                    photo={item.products[0].product.photo}
+                    subTitle={
+                      "R$ " +
+                      objOrder
+                        .getTotal()
+                        .toLocaleString("pt-br", { minimumFractionDigits: 2 })
+                    }
+                    value={null}
+                  />
+                </div>
+              </div>
+            );
+          })}
         </ul>
       }
     </div>

@@ -1,13 +1,16 @@
 .New-Order-Step-One-Container-Inf-Order {
+ 
   padding: 2.3rem 4rem 0rem 4rem;
   max-width: 51.2rem;
   width: 100%;
   background: #fafafa;
 }
 .New-Order-Step-One-Container-Text-Title {
+  
   padding-top: 1.4rem;
 }
 .New-Order-Step-One-Subtitle-Inf-Order {
+  
   margin-top: 2.4rem;
   font-family: Open Sans;
   font-style: normal;
@@ -26,3 +29,29 @@
   font-size: 1.6rem;
   line-height: 2.4rem;
 }
+
+.New-Order-Step-One-Container-Button{
+  display: flex;
+  /* max-width: 51.2rem;
+  width: 100%; */
+}
+
+@media  (max-width : 850px) {
+
+  .New-Order-Step-One-Container-Inf-Order {
+    
+    padding: 2.3rem 1.6rem 0rem 1.6rem;
+  }
+
+}
+
+
+@media  (max-width : 680px) {
+  .New-Order-Step-One-Container-Inf-Order {
+    max-width: 68rem;
+    width: 100%;
+  }
+  
+
+}
+

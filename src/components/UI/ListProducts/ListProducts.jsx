@@ -8,12 +8,11 @@ import IconSelected from "../../../assets/icones/ItemSelected.svg";
 const ListProducts = ({ listProducts, buttonActive }) => {
   const { StatusNewOrder, setStatusNewOrder } = useContext(StoreConstext);
   const [itemsSelected, setitemsSelected] = useState([]);
-  function onClickCard(obj) {
-    var selecteds = [...itemsSelected];
-    selecteds.push(obj.id);
-    setitemsSelected([...selecteds]);
-    // console.log("selecteds: " + itemsSelected);
 
+  function onClickCard(obj) {
+
+    var selecteds = [...itemsSelected];
+    // console.log("selecteds: " + itemsSelected);
     const objOrder = new Order({
       id: 6,
       client: null,
@@ -21,21 +20,25 @@ const ListProducts = ({ listProducts, buttonActive }) => {
       date: "18/06/2020",
       status: "open",
     });
-    var productAdded = false;
+    var productRemoved = false;
     if (objOrder.itens.length === 0) {
       objOrder.itens.push({ product: obj, qnt: 1 });
+      selecteds.push(obj.id);
     } else {
       objOrder.itens.forEach((item, index) => {
         if (item.product.id === obj.id) {
-          objOrder.itens[index] = { product: obj, qnt: item.qnt + 1 };
-          productAdded = true;
+          objOrder.itens.splice(index,1);
+          selecteds.splice(selecteds.indexOf(obj.id),1);
+          productRemoved = true;
           return true;
         }
       });
-      if (!productAdded) {
+      if (!productRemoved) {
         objOrder.itens.push({ product: obj, qnt: 1 });
+        selecteds.push(obj.id);
       }
     }
+    setitemsSelected([...selecteds]);
     // console.log("objOrder: " + objOrder.itens);
     const order = {
       id: objOrder.id,
@@ -44,10 +47,10 @@ const ListProducts = ({ listProducts, buttonActive }) => {
       date: objOrder.date,
       status: objOrder.status,
     };
-
     setStatusNewOrder({ progress: "1", order: order });
     // console.log("list product in LIst: " + StatusNewOrder.order.products);
   }
+  
   function checkSelected(id) {
     // console.log("list Selecteds: "+itemsSelected);
     var check = itemsSelected.some((item) => {
@@ -103,6 +106,8 @@ const ListProducts = ({ listProducts, buttonActive }) => {
           </div>
         );
       })}
+
+      
     </div>
   );
 };

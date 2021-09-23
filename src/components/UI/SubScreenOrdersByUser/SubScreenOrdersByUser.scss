@@ -7,9 +7,33 @@
   margin-right: 3.9rem;
   margin-left: 4rem;
 }
-.Container-user-header-photo{
- margin-bottom:4.26rem ;
+
+.Container-Header-Icons{
+display: flex;
+flex-direction: column;
+// background-color: aqua;
+justify-content: space-between;
+margin-top: 1.6rem;
+
+width: 100%;
+
 }
+
+
 .Container-title-orderByUser{
   margin-top: 1.6rem;
+}
+
+@media  (max-width : 850px) {
+
+  .Container-orders-by-user {
+    
+    margin-right: 1.6rem;
+    margin-left: 1.6rem;
+   
+  }
+  .Container-Header-Icons{
+    flex-direction: row-reverse;
+  }
+
 }

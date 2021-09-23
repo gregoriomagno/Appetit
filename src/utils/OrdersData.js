@@ -14,8 +14,8 @@ import PhotoFoodPaoComp from "../assets/imageFood/PhotoFoodPaoComp.svg";
 const person1 = new Person("1", "Marcel batista", marcelPhoto);
 const person2 = new Person("2", "Fernanda Siqueira", fernandaPhoto);
 const person3 = new Person("3", "Luiz Oliveira", luizPhoto);
-
-export const persons = [person1,person2,person3];
+const person4 = new Person("4", "Luiz Oliveira", luizPhoto);
+export const persons = [person1,person2,person3,person4];
 
 
 
