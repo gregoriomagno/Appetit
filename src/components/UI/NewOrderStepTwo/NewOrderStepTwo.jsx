@@ -18,11 +18,18 @@ const NewOrderStepTwo = ({ status }) => {
 
   const [clients, setClients] = useState(persons);
 
-  const [clientSelected, setClientSelected] = useState();
 
   const { data, setData } = useContext(StoreConstext);
   const history = useHistory();
 
+  function checkListClients(id){
+    if(StatusNewOrder.clients === null){
+      return false;
+    }else{
+      return  StatusNewOrder.clients.some((item)=> item.key === id);
+    }
+   
+  }
   function onChange(event) {
 
     const { value } = event.target;
@@ -49,16 +56,21 @@ const NewOrderStepTwo = ({ status }) => {
 
 
   function endOrder() {
-    var list = [...data];
 
-    const order = {
-      id: StatusNewOrder.order.id,
-      client: StatusNewOrder.order.client,
-      products: StatusNewOrder.order.itens,
-      date: StatusNewOrder.order.date,
-      status: StatusNewOrder.order.client.status,
-    };
-    list.push(order);
+    var list = [...data];
+    StatusNewOrder.clients.map(function(client){
+      const order = {
+        id: StatusNewOrder.order.id,
+        client: client,
+        products: StatusNewOrder.order.itens,
+        date: StatusNewOrder.order.date,
+        status: StatusNewOrder.order.status,
+      }; 
+      list.push(order);
+      return 0;
+    })
+    
+   
 
     // console.log("-----------------");
     // console.log("list: " + list);
@@ -77,6 +89,7 @@ const NewOrderStepTwo = ({ status }) => {
         date: "",
         status: "open",
       }),
+      clients :[]
     });
     return history.push("/novoPedido/completo");
   }
@@ -104,7 +117,7 @@ const NewOrderStepTwo = ({ status }) => {
             <div
               key={index}
               className={
-                (StatusNewOrder.order.client !== null && index ===clients.length-1 )
+                (StatusNewOrder.clients !== null && index ===clients.length-1 )
                   ? "New-Order-Step-Two-Card-Margin"
                   : ""}
             >
@@ -113,14 +126,16 @@ const NewOrderStepTwo = ({ status }) => {
                 item={null}
                 title={person.clientName}
                 photo={
-                  clientSelected === person.key
+                  checkListClients(person.key)
                     ? IconSelected
                     : person.clientPhoto
                 }
                 subTitle={" "}
                 onClick={function () {
-                  if(clientSelected === person.key){
-                    setClientSelected(null);
+
+                  if(StatusNewOrder.clients === null){
+                    var array = [];
+                    array.push(person);
                     setStatusNewOrder({
                       progress: "2",
                       order: new Order({
@@ -130,18 +145,43 @@ const NewOrderStepTwo = ({ status }) => {
                         date: StatusNewOrder.order.date,
                         status: "open",
                       }),
+                      clients: [...array]
                     });
-                  }else{
-                    setClientSelected(person.key);
+                  }
+
+                 else if( checkListClients(person.key)){
+                    var array = [...StatusNewOrder.clients];
+                    array.splice(array.find(id => id.key === person.key),1);
+                    
+
+                    
+                    console.log("clients selecteds : " +StatusNewOrder.clients );
+
                     setStatusNewOrder({
                       progress: "2",
                       order: new Order({
                         id: StatusNewOrder.order.key,
-                        client: person,
+                        client: null,
                         products: StatusNewOrder.order.itens,
                         date: StatusNewOrder.order.date,
                         status: "open",
                       }),
+                      clients: [...array]
+                    });
+
+                  }else{
+                    var array = [...StatusNewOrder.clients];
+                    array.push(person);
+                    setStatusNewOrder({
+                      progress: "2",
+                      order: new Order({
+                        id: StatusNewOrder.order.key,
+                        client: null,
+                        products: StatusNewOrder.order.itens,
+                        date: StatusNewOrder.order.date,
+                        status: "open",
+                      }),
+                      clients: [...array]
                     });
                   }
                   
@@ -152,8 +192,8 @@ const NewOrderStepTwo = ({ status }) => {
           );
         })}
       </div>
-      {StatusNewOrder.order.client !== null && (
-        <ButtonNextStep label={"Cliente"} onClick={endOrder} key={2}/>
+      {StatusNewOrder.clients !== null && (
+        <ButtonNextStep label={StatusNewOrder.clients.length > 1  ? StatusNewOrder.clients.length + " clientes selecionados": "1 cliente selecionado" } onClick={endOrder} key={"4"}/>
       )}
     </>
   );

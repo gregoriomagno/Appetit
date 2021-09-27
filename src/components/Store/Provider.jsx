@@ -18,8 +18,8 @@ function initData() {
 const StoreProvider = ({ children }) => {
   const [token, setToken] = useStorage("token");
   const [data, setData] = useState(OrdersData);
-  const [StatusNewOrder, setStatusNewOrder]= useState({ progress : "1", order: new Order({id: -1,client : null,products: [],date:"",status:"open"})});
- 
+  const [StatusNewOrder, setStatusNewOrder]= useState({ progress : "1", order: new Order({id: -1,client : null,products: [],date:"",status:"open"}),clients: null});
+  const [statusMenu, setStatusMenu] = useState({menu: 0, subMenu:0});
 
   return (
     <Context.Provider
@@ -30,6 +30,8 @@ const StoreProvider = ({ children }) => {
         setData,
         StatusNewOrder,
         setStatusNewOrder,
+        statusMenu,
+        setStatusMenu,
       }}
     >
       {children}

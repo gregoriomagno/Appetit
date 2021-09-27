@@ -1,6 +1,11 @@
 .Abstract-New-Order-Column-Page{
+  overflow-y: scroll;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  max-width: 51.2rem;
+  width: 100%;
+  height: 100vh;
 }
 .Container-products {
   background-color: #ffffff;
@@ -8,8 +13,8 @@
   flex-direction: column;
   max-width: 51.2rem;
   width: 100%;
-  padding: 7.2rem 4rem 0rem 4rem;
-  
+  padding: 7.46rem 4rem 0rem 4rem;
+  // height: 100vh;
 }
 .Container-title {
   max-width: 43.2rem;
@@ -43,6 +48,14 @@
 
   color: rgba(0, 0, 0, 0.88);
 }
+.New-Order-Step-Two-Container-Total{
+  // background-color: blue;
+  display: flex;
+  flex-direction: column;
+  max-width: 43.2rem;
+  width: 100%;
+ 
+}
 .New-Order-Step-Two-Divider-Total{
   // max-width: 51.2rem;
   border: none;
@@ -50,7 +63,24 @@
   height: 0.8rem;
   background:rgba(0, 0, 0, 0.08) ;
 }
+.New-Order-Step-Two-Divider-Total-Row{
+  display: flex;
+  flex-direction: row;
+  max-width: 51.2rem;
+  width: 100%;
+ 
+  padding: 2.4rem 4rem 1rem 4rem;
+  justify-content: space-between;
+  font-size: 2rem;
+  // line-height: 3rem;
+}
 
+.New-Order-Step-Two-Text-Value{
+
+  color: rgba(0, 0, 0, 0.56);
+
+  
+}
 
 
 

@@ -45,7 +45,7 @@ class Order {
     }
      getTotal(){
         var total=0;
-        console.log("getTotal: "+ this.itens);
+        // console.log("getTotal: "+ this.itens);
         this.itens.forEach(function (item) {
             var price;
             var qnt;

@@ -84,7 +84,7 @@ const NewOrderStepOne = ({ status }) => {
             })
           }
           onClick={() =>
-            setStatusNewOrder({ progress: "2", order: status.order })
+            setStatusNewOrder({ progress: "2", order: status.order, clients: null })
           }
         />
       )}

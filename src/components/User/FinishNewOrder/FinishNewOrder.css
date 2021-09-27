@@ -18,7 +18,7 @@
   flex: 1;
 }
 .Finish-New-Order-Container-Photo-User {
-  margin: 0rem 3.9rem 1.6rem 0rem;
+  margin: 1.6rem 3.9rem 1.6rem 0rem;
 }
 .Finish-New-Order-Container-Content-Center {
   display: flex;
@@ -49,6 +49,13 @@
    align-items: center
     
   }
+  .Finish-New-Order-Container-Photo-User{
+    display: none;
+  }
+
+}
+@media  (max-width : 1024px) {
+  
   .Finish-New-Order-Container-Photo-User{
     display: none;
   }

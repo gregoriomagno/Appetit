@@ -47,7 +47,7 @@ const ListProducts = ({ listProducts, buttonActive }) => {
       date: objOrder.date,
       status: objOrder.status,
     };
-    setStatusNewOrder({ progress: "1", order: order });
+    setStatusNewOrder({ progress: "1", order: order ,clients: null});
     // console.log("list product in LIst: " + StatusNewOrder.order.products);
   }
   

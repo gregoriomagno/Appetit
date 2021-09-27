@@ -2,9 +2,11 @@ import React from "react";
 import { SidebarData } from "./SidebarData";
 import Logo from "../../../assets/Home/LogoWhite.svg";
 import ItemMenu from "../ItemMenu/ItemMenu";
+
 import "./Menu.scss";
 
 function Menu() {
+ 
   return (
     <div className="Container-menu-home">
       <div className="Container-Logo-Sidebar">

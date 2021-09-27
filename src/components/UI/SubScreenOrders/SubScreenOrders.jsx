@@ -173,7 +173,7 @@ const SubScreenOrders = () => {
                   <div key={index}>
                     <Card
                       key={order.id}
-                      item={order}
+                      item={order.client}
                       title={order.client.clientName}
                       photo={order.client.clientPhoto}
                       subTitle={objOrder.getDescription()}
