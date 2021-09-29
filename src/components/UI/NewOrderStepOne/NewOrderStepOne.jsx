@@ -10,8 +10,6 @@ import "./NewOrderStepOne.css";
 import ButtonNextStep from "../ButtonNextStep/ButtonNextStep";
 import Order from "../../../models/Order";
 
-///refatorar
-
 const NewOrderStepOne = ({ status }) => {
   const [listProducts, setListProducts] = useState(products);
   const { setStatusNewOrder } = useContext(StoreConstext);
@@ -30,9 +28,10 @@ const NewOrderStepOne = ({ status }) => {
     var foods = [];
     var resultSearch = [];
 
-    listProducts.forEach((itemList) => {
+    products.forEach((itemList) => {
       itemList.itens.forEach((itemProduct) => {
         console.log(itemProduct);
+
         if (itemProduct.title.toUpperCase().indexOf(value.toUpperCase()) > -1) {
           foods.push(itemProduct);
         }
@@ -50,31 +49,30 @@ const NewOrderStepOne = ({ status }) => {
     }
   }
   return (
-    
-      <>
-        <div className="New-Order-Step-One-Container-Inf-Order">
-          <div className="New-Order-Step-One-Container-Text-Title">
-            <TitleSubScreen title="Informações para o pedido" />
-          </div>
-          <p className="New-Order-Step-One-Subtitle-Inf-Order">
-            Preencha as informações abaixo para concluir esta venda.
-          </p>
-          <LoadSteps progress={status.progress} />
-          <h6 className="New-Order-Step-One-Text-h6">
-            O que você está vendendo?
-          </h6>
-          <FieldSearch
-            onChange={onChange}
-            placeholder={"Procure o pedido aqui..."}
-            trailing={null}
-          />
+    <>
+      <div className="New-Order-Step-One-Container-Inf-Order">
+        <div className="New-Order-Step-One-Container-Text-Title">
+          <TitleSubScreen title="Informações para o pedido" />
         </div>
-
-        <ListProducts
-          listProducts={listProducts}
-          buttonActive={status.order.itens.length !== 0}
+        <p className="New-Order-Step-One-Subtitle-Inf-Order">
+          Preencha as informações abaixo para concluir esta venda.
+        </p>
+        <LoadSteps progress={status.progress} />
+        <h6 className="New-Order-Step-One-Text-h6">
+          O que você está vendendo?
+        </h6>
+        <FieldSearch
+          onChange={onChange}
+          placeholder={"Procure o pedido aqui..."}
+          trailing={null}
         />
-      
+      </div>
+
+      <ListProducts
+        listProducts={listProducts}
+        buttonActive={status.order.itens.length !== 0}
+      />
+
       {status.order.itens.length !== 0 && (
         <ButtonNextStep
           label={
@@ -84,7 +82,11 @@ const NewOrderStepOne = ({ status }) => {
             })
           }
           onClick={() =>
-            setStatusNewOrder({ progress: "2", order: status.order, clients: null })
+            setStatusNewOrder({
+              progress: "2",
+              order: status.order,
+              clients: null,
+            })
           }
         />
       )}

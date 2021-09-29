@@ -12,6 +12,7 @@ const FieldSearch = ({ onChange, placeholder,trailing }) => {
           <input
             onChange={onChange}
             id="search"
+            autoComplete="off"
             name="search"
             type="text"
             placeholder={placeholder}

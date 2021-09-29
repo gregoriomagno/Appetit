@@ -18,20 +18,17 @@ const NewOrderStepTwo = ({ status }) => {
 
   const [clients, setClients] = useState(persons);
 
-
   const { data, setData } = useContext(StoreConstext);
   const history = useHistory();
 
-  function checkListClients(id){
-    if(StatusNewOrder.clients === null){
+  function checkListClients(id) {
+    if (StatusNewOrder.clients === null) {
       return false;
-    }else{
-      return  StatusNewOrder.clients.some((item)=> item.key === id);
+    } else {
+      return StatusNewOrder.clients.some((item) => item.key === id);
     }
-   
   }
   function onChange(event) {
-
     const { value } = event.target;
 
     var resultSearch = [];
@@ -42,35 +39,87 @@ const NewOrderStepTwo = ({ status }) => {
           new Person(person.key, person.clientName, person.clientPhoto)
         );
       }
-
     });
     console.log("resultSearch: " + resultSearch.length);
-    if (value === "" ) {
+    if (value === "") {
       setClients(persons);
     } else {
-     
       setClients(resultSearch);
     }
     console.log("clientes lista show: " + clients);
   }
 
+  function clickCard(person) {
+    if (StatusNewOrder.clients === null) {
+      console.log("1");
 
+      var array = [];
+
+      array.push(person);
+
+      setStatusNewOrder({
+        progress: "2",
+        order: new Order({
+          id: StatusNewOrder.order.key,
+          client: null,
+          products: StatusNewOrder.order.itens,
+          date: StatusNewOrder.order.date,
+          status: "open",
+        }),
+        clients: [...array],
+      });
+    } else if (checkListClients(person.key)) {
+      console.log("2");
+
+      var array = [...StatusNewOrder.clients];
+
+      array = array.filter(function (idRemove) {
+        return idRemove.key !== person.key;
+      });
+
+      console.log("person.key : " + person.key);
+
+      setStatusNewOrder({
+        progress: "2",
+        order: new Order({
+          id: StatusNewOrder.order.key,
+          client: null,
+          products: StatusNewOrder.order.itens,
+          date: StatusNewOrder.order.date,
+          status: "open",
+        }),
+        clients: array.length === 0 ? null : [...array],
+      });
+    } else {
+      console.log("3");
+      var array = [...StatusNewOrder.clients];
+      array.push(person);
+      setStatusNewOrder({
+        progress: "2",
+        order: new Order({
+          id: StatusNewOrder.order.key,
+          client: null,
+          products: StatusNewOrder.order.itens,
+          date: StatusNewOrder.order.date,
+          status: "open",
+        }),
+        clients: [...array],
+      });
+    }
+  }
   function endOrder() {
-
     var list = [...data];
-    StatusNewOrder.clients.map(function(client){
+    StatusNewOrder.clients.map(function (client) {
       const order = {
         id: StatusNewOrder.order.id,
         client: client,
         products: StatusNewOrder.order.itens,
         date: StatusNewOrder.order.date,
         status: StatusNewOrder.order.status,
-      }; 
+      };
       list.push(order);
       return 0;
-    })
-    
-   
+    });
 
     // console.log("-----------------");
     // console.log("list: " + list);
@@ -89,10 +138,11 @@ const NewOrderStepTwo = ({ status }) => {
         date: "",
         status: "open",
       }),
-      clients :[]
+      clients: [],
     });
     return history.push("/novoPedido/completo");
   }
+
   return (
     <>
       <div className="New-Order-Step-Two-Container-Column">
@@ -117,9 +167,10 @@ const NewOrderStepTwo = ({ status }) => {
             <div
               key={index}
               className={
-                (StatusNewOrder.clients !== null && index ===clients.length-1 )
+                StatusNewOrder.clients !== null && index === clients.length - 1
                   ? "New-Order-Step-Two-Card-Margin"
-                  : ""}
+                  : ""
+              }
             >
               <CardNewOrder
                 key={person.key}
@@ -132,59 +183,7 @@ const NewOrderStepTwo = ({ status }) => {
                 }
                 subTitle={" "}
                 onClick={function () {
-
-                  if(StatusNewOrder.clients === null){
-                    var array = [];
-                    array.push(person);
-                    setStatusNewOrder({
-                      progress: "2",
-                      order: new Order({
-                        id: StatusNewOrder.order.key,
-                        client: null,
-                        products: StatusNewOrder.order.itens,
-                        date: StatusNewOrder.order.date,
-                        status: "open",
-                      }),
-                      clients: [...array]
-                    });
-                  }
-
-                 else if( checkListClients(person.key)){
-                    var array = [...StatusNewOrder.clients];
-                    array.splice(array.find(id => id.key === person.key),1);
-                    
-
-                    
-                    console.log("clients selecteds : " +StatusNewOrder.clients );
-
-                    setStatusNewOrder({
-                      progress: "2",
-                      order: new Order({
-                        id: StatusNewOrder.order.key,
-                        client: null,
-                        products: StatusNewOrder.order.itens,
-                        date: StatusNewOrder.order.date,
-                        status: "open",
-                      }),
-                      clients: [...array]
-                    });
-
-                  }else{
-                    var array = [...StatusNewOrder.clients];
-                    array.push(person);
-                    setStatusNewOrder({
-                      progress: "2",
-                      order: new Order({
-                        id: StatusNewOrder.order.key,
-                        client: null,
-                        products: StatusNewOrder.order.itens,
-                        date: StatusNewOrder.order.date,
-                        status: "open",
-                      }),
-                      clients: [...array]
-                    });
-                  }
-                  
+                  clickCard(person);
                 }}
               />
               <hr className="New-Order-Step-Two-Divider-Card-Person" />
@@ -193,7 +192,15 @@ const NewOrderStepTwo = ({ status }) => {
         })}
       </div>
       {StatusNewOrder.clients !== null && (
-        <ButtonNextStep label={StatusNewOrder.clients.length > 1  ? StatusNewOrder.clients.length + " clientes selecionados": "1 cliente selecionado" } onClick={endOrder} key={"4"}/>
+        <ButtonNextStep
+          label={
+            StatusNewOrder.clients.length > 1
+              ? StatusNewOrder.clients.length + " clientes selecionados"
+              : "1 cliente selecionado"
+          }
+          onClick={endOrder}
+          key={"4"}
+        />
       )}
     </>
   );

@@ -39,7 +39,6 @@ const ListProducts = ({ listProducts, buttonActive }) => {
       }
     }
     setitemsSelected([...selecteds]);
-    // console.log("objOrder: " + objOrder.itens);
     const order = {
       id: objOrder.id,
       client: objOrder.client,
@@ -48,7 +47,6 @@ const ListProducts = ({ listProducts, buttonActive }) => {
       status: objOrder.status,
     };
     setStatusNewOrder({ progress: "1", order: order ,clients: null});
-    // console.log("list product in LIst: " + StatusNewOrder.order.products);
   }
   
   function checkSelected(id) {

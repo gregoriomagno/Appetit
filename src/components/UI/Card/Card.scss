@@ -30,6 +30,8 @@
   text-align: left;
 }
 .Text-name-client {
+  overflow-x: hidden;
+ white-space: nowrap;
   font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
@@ -42,7 +44,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 21.6rem;
+  max-width: 28.1rem;
   width: 100%;
   text-align: left;
   color: rgba(0, 0, 0, 0.54);

@@ -10,6 +10,8 @@ import { useContext } from "react";
 import StoreConstext from "../../Store/Context";
 
 const AbstractNewOrder = ({ order }) => {
+  const { StatusNewOrder, setStatusNewOrder } = useContext(StoreConstext);
+
   const objOrder = new Order({
     id: order.id,
     client: null,
@@ -17,8 +19,9 @@ const AbstractNewOrder = ({ order }) => {
     date: order.date,
     status: order.status,
   });
+
   const history = useHistory();
-  const { StatusNewOrder, setStatusNewOrder } = useContext(StoreConstext);
+
   return (
     <div className="Abstract-New-Order-Column-Page">
       <div className="Container-products">
@@ -106,7 +109,6 @@ const AbstractNewOrder = ({ order }) => {
               {objOrder.getTotal().toLocaleString("pt-br", {
                 minimumFractionDigits: 2,
               })}
-              
             </p>
           </div>
         </>
