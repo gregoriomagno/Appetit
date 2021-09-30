@@ -19,7 +19,7 @@ const StoreProvider = ({ children }) => {
   const [token, setToken] = useStorage("token");
   const [data, setData] = useState(OrdersData);
   const [StatusNewOrder, setStatusNewOrder]= useState({ progress : "1", order: new Order({id: -1,client : null,products: [],date:"",status:"open"}),clients: null});
-  const [statusMenu, setStatusMenu] = useState({menu: 0, subMenu:0});
+  const [statusMenu, setStatusMenu] = useState("");
 
   return (
     <Context.Provider

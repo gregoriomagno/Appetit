@@ -8,38 +8,43 @@ const ItemMenu = ({ item }) => {
 
   const history = useHistory();
 
-  const clickItemMenu = () => {
-    setStatusMenu({ menu: item.key, subMenu: statusMenu.subMenu });
+  const clickItemMenu = (path) => {
+    setStatusMenu(path);
+    history.push(item.path);
   };
   const click = (item) => {
-    setStatusMenu({ menu: statusMenu.menu, subMenu: item.key });
-    return history.push(item.path, { name: "teste" });
+    history.push(item.path, { name: "teste" });
+    setStatusMenu(item.path);
+    
   };
 
   return (
     <div className="Container-Itens-Menu">
       <button
         className={
-          statusMenu.menu === item.key
+          statusMenu.includes(item.path,0)
             ? "Item-menu-selected"
             : "Item-menu-not-selected"
         }
         type="button"
         key={item.key}
-        onClick={() => clickItemMenu(item.key)}
+        onClick={() => clickItemMenu(item.path)}
         disabled={item.disabled}
       >
         {" "}
+        {console.log(
+          statusMenu + " === " + item.path + " ? " + (statusMenu === item.path)
+        )}
         <img
-          src={statusMenu.menu === item.key ? item.iconSelected : item.icon}
+          src={statusMenu.includes(item.path,0)? item.iconSelected : item.icon}
           alt={item.key}
         />
         <span className="Text-item-menu" key={item.key}>
           {item.title}
         </span>
       </button>
-
-      {statusMenu.menu === item.key && item.subNav
+     
+      {statusMenu.includes(item.path,0) && item.subNav
         ? item.subNav.map((item, index) => {
             return (
               <button
@@ -51,13 +56,13 @@ const ItemMenu = ({ item }) => {
                 }}
                 disabled={item.disabled}
               >
-                {statusMenu.subMenu === item.key && (
+                {statusMenu === item.path && (
                   <hr className="Indicator" />
                 )}
 
                 <span
                   className={
-                    statusMenu.subMenu !== item.key
+                    statusMenu !== item.path
                       ? "Text-item-subMenu-Space"
                       : "Text-item-subMenu"
                   }

@@ -17,7 +17,7 @@ const PagesRoot = () => (
         <Route exact path="/novoPedido">
           <PagesNewOrder />
         </Route>
-        <Route exact path="/pedidos">
+        <Route exact path="/pedidos/abertos">
           <Orders />
         </Route>
         <Route exact path="/pedidos/cliente">

@@ -16,7 +16,6 @@ function setOrderByDate(list) {
   list.map(function (item) {
     const obj = new Order(item);
     if (listByDate.length === 0) {
-    
       listByDate.push({
         date: item.date,
         order: [item],
@@ -91,6 +90,7 @@ const SubScreenOrders = () => {
         <img src={IconPlus} alt="IconPlus" />
         <p className="Text-button-new-orders">fazer novo pedido</p>
       </button>
+      
       <FieldSearch
         onChange={onChange}
         placeholder={"Procure o pedido aqui..."}

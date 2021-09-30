@@ -38,13 +38,9 @@ const SubScreenOrdersByUser = ({ user }) => {
 
   return (
     <div className="Container-orders-by-user">
-      <div className= "Container-Header-Icons">
-      <UserHeaderPhoto />
-      <IconButtonbackPage onClick={() => history.goBack()} />
-       
-        
-
-      
+      <div className="Container-Header-Icons">
+        <UserHeaderPhoto />
+        <IconButtonbackPage onClick={() => history.goBack()} />
       </div>
 
       <div className="Container-title-orderByUser">

@@ -20,7 +20,9 @@ const ListProducts = ({ listProducts, buttonActive }) => {
       date: "18/06/2020",
       status: "open",
     });
+
     var productRemoved = false;
+    
     if (objOrder.itens.length === 0) {
       objOrder.itens.push({ product: obj, qnt: 1 });
       selecteds.push(obj.id);

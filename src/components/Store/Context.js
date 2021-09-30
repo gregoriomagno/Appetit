@@ -7,7 +7,7 @@ import { createContext } from "react";
     setData : () => {},
     StatusNewOrder : null,
     setStatusNewOrder : () =>{},
-    statusMenu :null,
+    statusMenu :"",
     setStatusMenu: () =>{}
 
 

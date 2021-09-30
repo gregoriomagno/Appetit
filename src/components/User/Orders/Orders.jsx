@@ -1,20 +1,14 @@
 import Menu from "../../UI/Menu/Menu";
 import SubScreenOrders from "../../UI/SubScreenOrders/SubScreenOrders";
-import React, { useContext } from "react";
-import StoreConstext from "../../Store/Context";
+import React from "react";
 
 import "./Orders.scss";
 
 const Orders = () => {
-  const { statusMenu, setStatusMenu } = useContext(StoreConstext);
-
-
-
-  
   return (
     <div className="Container-Page-Orders">
       <Menu />
-      <SubScreenOrders/> 
+      <SubScreenOrders />
     </div>
   );
 };

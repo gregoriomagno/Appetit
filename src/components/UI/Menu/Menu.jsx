@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext,useEffect } from "react";
 import { SidebarData } from "./SidebarData";
 import Logo from "../../../assets/Home/LogoWhite.svg";
 import ItemMenu from "../ItemMenu/ItemMenu";
-
+import { useLocation } from "react-router-dom";
+import StoreConstext from "../../Store/Context";
 import "./Menu.scss";
 
 function Menu() {
+  const { statusMenu, setStatusMenu } = useContext(StoreConstext);
+  const location = useLocation();
+
+  const path = location.pathname;
+
+  useEffect(() => {
+    setStatusMenu(path);
+  }, );
+  // path !== statusMenu
   return (
     <div className="Container-menu-home">
       <div className="Container-Logo-Sidebar">

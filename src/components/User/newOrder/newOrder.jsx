@@ -25,6 +25,7 @@ const NewOrder = () => {
 
       <div className="Container-Column">
         <div className="bnt">
+          
           <IconButtonbackPage
             onClick={() => {
               if (StatusNewOrder.progress === "1") {

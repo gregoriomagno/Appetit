@@ -49,7 +49,7 @@ export const OrdersData = [
         date: '11/05/2020',
         products: [{
             'product': produto2,
-            'qnt': 3,
+            'qnt': 1,
         }],
     },
     {
@@ -58,7 +58,7 @@ export const OrdersData = [
         date: '11/05/2020',
         products: [{
             'product': produto2,
-            'qnt': 3,
+            'qnt': 1,
         }],
     },
     {
@@ -67,10 +67,10 @@ export const OrdersData = [
         date: '12/05/2020',
         products: [{
             'product': produto3,
-            'qnt': 4,
+            'qnt': 1,
         },{
             'product': produto2,
-            'qnt': 4,
+            'qnt': 1,
         }],
     },
 

@@ -18,13 +18,13 @@ export const SidebarData = [
             {
                 title:"EM ABERTO",
                 key: "1.1",
-                path: '/pedidos',
+                path: '/pedidos/abertos',
                 open: false,
                 disabled: false,
             }, {
                 title:"ENCERRADOS",
                 key: "1.2",
-                path: '',
+                path: '/pedidos/encerrados/',
                 open: false,
                 disabled: true,
             }
@@ -35,7 +35,7 @@ export const SidebarData = [
     {
         title:"Clientes",
         key: "2",
-        path: '',
+        path: '/clientes',
         icon:IconPersonWhite,
         iconSelected: IconPersonOrange,
         className: 'Item-menu',
