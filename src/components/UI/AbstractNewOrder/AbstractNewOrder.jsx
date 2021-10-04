@@ -38,7 +38,10 @@ const AbstractNewOrder = ({ order }) => {
               }),
               clients: null,
             });
-            history.goBack();
+
+
+            history.push("/pedidos/abertos");
+            // history.goBack();
           }}
         />
 

@@ -17,7 +17,7 @@ const ListProducts = ({ listProducts, buttonActive }) => {
       id: 6,
       client: null,
       products: StatusNewOrder.order.itens,
-      date: "18/06/2020",
+      date: "01/10/2021",
       status: "open",
     });
 

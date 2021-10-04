@@ -51,8 +51,6 @@ const NewOrderStepTwo = ({ status }) => {
 
   function clickCard(person) {
     if (StatusNewOrder.clients === null) {
-  
-
       var array = [];
 
       array.push(person);

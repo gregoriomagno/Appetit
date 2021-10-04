@@ -25,27 +25,36 @@ const NewOrder = () => {
 
       <div className="Container-Column">
         <div className="bnt">
-          
           <IconButtonbackPage
             onClick={() => {
               if (StatusNewOrder.progress === "1") {
-                history.push("/pedidos");
-              }
-              
-              if (StatusNewOrder.progress === "2") {
                 setStatusNewOrder({
-                  progress: "1", order: new Order({
-                    id: StatusNewOrder.order.key,
+                  progress: "1",
+                  order: new Order({
+                    id: -1,
                     client: null,
-                    products: StatusNewOrder.order.itens,
-                    date: StatusNewOrder.order.date,
+                    products: [],
+                    date: "",
                     status: "open",
                   }),
-                })
-
+                  clients: null,
+                });
+                history.push("/pedidos/abertos");
               }
 
-
+              if (StatusNewOrder.progress === "2") {
+                setStatusNewOrder({
+                  progress: "1",
+                  order: new Order({
+                    id: -1,
+                    client: null,
+                    products: [],
+                    date: "",
+                    status: "open",
+                  }),
+                  clients: null,
+                });
+              }
             }}
           />
         </div>

@@ -20,7 +20,7 @@ const FinishNewOrder = () => {
           <div className="Finish-New-Order-Container-Content-Center">
             <img src={ImgFinishNewOrder} alt={ImgFinishNewOrder} />
             <div className="Finish-New-Order-Container-Content-Center-Buttons">
-              <Button disabled={false} Style="2" type="button" onClick={()=> history.push("/pedidos")}>voltar para lista de pedidos</Button>
+              <Button disabled={false} Style="2" type="button" onClick={()=> history.push("/pedidos/abertos")}>voltar para lista de pedidos</Button>
               <Button disabled={false} Style="1" type="button" onClick={()=> history.push("/novoPedido")} >FAZER NOVO PEDIDO</Button>
 
             </div>
