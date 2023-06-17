@@ -115,7 +115,6 @@ const UserLogin = () => {
           <Button disabled={validFields(values.email,values.password)} Style="1" type="submit">Entrar</Button>
         {/* verificar */}
         <div className="Text-baseboard">
-          <p>Infoway Gestão em Saúde ©, 2019.</p>
         </div>
       </form>
     </div>

@@ -32,7 +32,6 @@ function Menu() {
       </div>
 
       <span className="Text-baseboard-menu">
-        Infoway Gestão em Saúde ©, 2019.
       </span>
     </div>
   );
