@@ -12,7 +12,7 @@ function initialState() {
 
 function login({ email, password }) {
   // console.log("login");
-  if (email === "gregorio@gmail.com" && password === "gregorio") {
+  if (email === "Vanusa@gmail.com" && password === "vanusa") {
     // console.log("senha e email ok");
     return { token: "123", erro: "" };
   } else {
