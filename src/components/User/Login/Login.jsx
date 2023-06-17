@@ -12,7 +12,7 @@ function initialState() {
 
 function login({ email, password }) {
   // console.log("login");
-  if (email === "vanusa@gmail.com" && password === "gregorio") {
+  if (email === "gregorio@gmail.com" && password === "gregorio") {
     // console.log("senha e email ok");
     return { token: "123", erro: "" };
   } else {
@@ -29,7 +29,8 @@ function validFields(email,password){
 
   const  emailValid = expValidEmail.test(email);
   const  passwordValid = expValidPassword.test(password);
-  
+  console.log('emailValid : ',emailValid)
+  console.log('passwordValid : ',passwordValid)
     return !emailValid || !passwordValid;
 }
 
