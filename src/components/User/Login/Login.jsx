@@ -11,34 +11,34 @@ function initialState() {
 }
 
 function login({ email, password }) {
-  // console.log("login");
-  if (email === "vanusa@gmail.com" && password === "passwordVanusa") {
-    // console.log("senha e email ok");
+  if (
+    email === process.env.REACT_APP_EMAIL_LOGIN &&
+    password === process.env.REACT_APP_PASSWORD
+  ) {
     return { token: "123", erro: "" };
   } else {
     return { token: "", erro: "usuário ou senha invalidos!" };
   }
 }
 
-function validFields(email,password){
+function validFields(email, password) {
   //Expressão regular que valida o email
   let expValidEmail = new RegExp(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]/);
 
   //Expressão regular que valida a senha (minimo de 8 caracteres)
   let expValidPassword = new RegExp(/^(?=.*[A-Za-z])[A-Za-z\d]{8,}/);
 
-  const  emailValid = expValidEmail.test(email);
-  const  passwordValid = expValidPassword.test(password);
-  console.log('emailValid : ',emailValid)
-  console.log('passwordValid : ',passwordValid)
-    return !emailValid || !passwordValid;
+  const emailValid = expValidEmail.test(email);
+  const passwordValid = expValidPassword.test(password);
+  console.log("emailValid : ", emailValid);
+  console.log("passwordValid : ", passwordValid);
+  return !emailValid || !passwordValid;
 }
 
 const UserLogin = () => {
-  
   const [values, setValues] = useState(initialState);
   const { setToken } = useContext(StoreConstext);
-  const [erroLogin,setErroLogin] =  useState("");
+  const [erroLogin, setErroLogin] = useState("");
   const history = useHistory();
 
   function onChange(event) {
@@ -50,24 +50,20 @@ const UserLogin = () => {
     });
   }
 
-
-
   function onSubmit(event) {
     event.preventDefault();
     console.log(values);
 
-    const { token,erro } = login(values);
-  
-    if (token !=="") {
+    const { token, erro } = login(values);
+
+    if (token !== "") {
       setToken(token);
       return history.push("/pedidos/abertos");
     }
-    if(erro!==""){
+    if (erro !== "") {
       setErroLogin(erro);
       setValues(initialState);
     }
-
-   
   }
 
   return (
@@ -81,7 +77,12 @@ const UserLogin = () => {
           Nós sabemos a importância de estar sempre de barriga cheia e o quanto
           isso pode ajudar no seu dia.
         </p>
-        {erroLogin !=="" && <div className="Container-Text-Erro">  <p className="Text-Erro-Login">{erroLogin}</p></div>}
+        {erroLogin !== "" && (
+          <div className="Container-Text-Erro">
+            {" "}
+            <p className="Text-Erro-Login">{erroLogin}</p>
+          </div>
+        )}
         <div className="Field-email">
           <FieldInput
             placeholder="Email"
@@ -91,10 +92,12 @@ const UserLogin = () => {
             autoComplete="off"
             onChange={onChange}
             value={values.email}
-            onClick={()=>{setErroLogin("")}}
+            onClick={() => {
+              setErroLogin("");
+            }}
           />
         </div>
-        
+
         <div className="Field-password">
           <FieldInput
             placeholder="Senha"
@@ -104,18 +107,25 @@ const UserLogin = () => {
             autoComplete="off"
             onChange={onChange}
             value={values.password}
-            onClick={()=>{setErroLogin("")}}
+            onClick={() => {
+              setErroLogin("");
+            }}
           />
         </div>
 
-        <button type="button" className="Button-forgot-password" >
+        <button type="button" className="Button-forgot-password">
           recuperar minha senha
         </button>
-        
-          <Button disabled={validFields(values.email,values.password)} Style="1" type="submit">Entrar</Button>
+
+        <Button
+          disabled={validFields(values.email, values.password)}
+          Style="1"
+          type="submit"
+        >
+          Entrar
+        </Button>
         {/* verificar */}
-        <div className="Text-baseboard">
-        </div>
+        <div className="Text-baseboard"></div>
       </form>
     </div>
   );
